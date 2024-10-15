@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\CvController;
 use App\Http\Controllers\Frontend\frontendController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -108,5 +109,19 @@ Route::middleware('auth')->group(function(){
 });
 
 
-
 Route::get('/',[frontendController::class,'index'])->name('dashboard');
+
+
+//Translation of website
+Route::get('/language/{locale}', function ($lang) {
+    // تحقق من أن اللغة صحيحة (مثلاً "en" أو "ar")
+    if (! in_array($lang, ['en', 'ar'])) {
+        abort(400); // إذا لم تكن اللغة صالحة، عرض خطأ 400
+    }
+
+    // تخزين اللغة في الجلسة
+    Session::put('locale', $lang);
+
+    // إعادة توجيه المستخدم إلى الصفحة السابقة أو إلى الصفحة الرئيسية
+    return redirect()->back();
+});

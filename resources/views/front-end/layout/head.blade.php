@@ -24,4 +24,10 @@
     
     <!-- Responsive style -->
     <link href="{{ asset('front-end/css/responsive.css') }}" rel="stylesheet" />
+
+    @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('css/rtl.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/ltr.css') }}">
+    @endif
 </head>

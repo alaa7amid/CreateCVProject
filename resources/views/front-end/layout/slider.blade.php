@@ -71,6 +71,7 @@
                     <a href="{{route('BaiscInfo')}}" class="btn-1">
                       Create Your CV
                     </a>
+                    {{App::getLocale()}}
                   </div>
                   @else
                   <div class="btn-box">
