@@ -3,8 +3,8 @@
     <nav class="navbar navbar-expand-lg custom_nav-container mt-4">
       <!-- شعار الموقع -->
       <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset('2.png') }}" alt="Logo" />
-        <span>AZALProCV</span>
+        {{-- <img src="{{ asset('2.png') }}" alt="Logo" /> --}}
+        <span>SkyCV</span>
       </a>
 
       <!-- زر القائمة للأجهزة الصغيرة -->

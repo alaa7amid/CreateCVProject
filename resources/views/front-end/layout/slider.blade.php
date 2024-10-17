@@ -1,18 +1,18 @@
 <section class="slider_section ">
-    <div class="carousel_btn-container">
+    {{-- <div class="carousel_btn-container">
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="sr-only">Next</span>
       </a>
-    </div>
+    </div> --}}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
+      {{-- <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
-      </ol>
+      </ol> --}}
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="container-fluid">
@@ -20,25 +20,24 @@
               <div class="col-md-5 offset-md-1">
                 <div class="detail-box">
                   <h1>
-                    You Can <br>
-                    Hire Freelancer <br>
-                    Here
+                    Sky-CV <br>
+                    {{__("offers you an easy way to create a resume that")}} <br>
+                    {{__("with ATS standards.")}}
                   </h1>
                   <p>
-                    It is a long established fact that a reader will be distracted by
-                    the readable content of a page
+                    {{__("With SkyCV, you can craft a professional resume that helps you stand out to employers and enhances your chances of landing your ideal job. ")}}
                   </p>
                   @auth
                   <div class="btn-box">
                     <a href="{{route('BaiscInfo')}}" class="btn-1">
-                      Create Your CV
+                      {{__("Create Your CV")}}
                     </a>
                   </div>
                   @else
                   <div class="btn-box">
                     <a href="{{route('login')}}" class="btn-1">
                       {{-- Create Your CV --}}
-                      Login to create cv
+                    {{__("Login to create cv")}}
                     </a>
                   </div>
                   @endauth
@@ -52,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item">
+        {{-- <div class="carousel-item">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-5 offset-md-1">
@@ -76,7 +75,8 @@
                   @else
                   <div class="btn-box">
                     <a href="{{route('login')}}" class="btn-1">
-                      {{-- Create Your CV --}}
+                      
+                      
                       Login to create cv
                     </a>
                   </div>
@@ -90,7 +90,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
      
       </div>
     </div>

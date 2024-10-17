@@ -1,59 +1,13 @@
-{{-- <x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-  
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout> --}}
 <!doctype html>
-<html lang="en">
+<html  lang="{{ app()->getLocale() }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('back-end/favicon.ico') }}">
-    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <title>{{__("login to SkyCV")}}</title>
     
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="{{ asset('back-end/css/simplebar.css') }}">
@@ -70,6 +24,7 @@
  <!-- App CSS -->
  <link rel="stylesheet" href="{{ asset('back-end/css/app-light.css') }}" id="lightTheme">
  <link rel="stylesheet" href="{{ asset('back-end/css/app-dark.css') }}" id="darkTheme" disabled>
+ 
   </head>
   <body class="light ">
     <div class="wrapper vh-100">
@@ -77,7 +32,7 @@
         <form method="POST" action="{{ route('login') }}" class="col-lg-6 col-md-8 col-10 mx-auto">
           @csrf
           <div class="mx-auto text-center my-4">
-            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
+            {{-- <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="./index.html">
               <svg version="1.1" id="logo" class="navbar-brand-img brand-md" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 120 120" xml:space="preserve">
                 <g>
                   <polygon class="st0" points="78,105 15,105 24,87 87,87 	" />
@@ -85,8 +40,8 @@
                   <polygon class="st0" points="78,33 15,33 24,15 87,15 	" />
                 </g>
               </svg>
-            </a>
-            <h2 class="my-3">Sign In</h2>
+            </a> --}}
+            <h2 class="my-3">{{__("Sign In")}}</h2>
           </div> 
           <div class="form-row">
             {{-- <div class="form-group col-md-12">
@@ -99,7 +54,7 @@
             </div> --}}
           </div>
           <div class="form-group">
-            <label for="inputEmail4">Email</label>
+            <label for="inputEmail4">{{__("Email")}}</label>
             <input type="email" class="form-control" id="inputEmail4" name="email" :value="old('email')" >
           </div>
          
@@ -107,18 +62,18 @@
           <div class="row mb-12">
             <div class="col-md-12">
               <div class="form-group">
-                <label for="inputPassword5">Password</label>
+                <label for="inputPassword5">{{__("Password")}}</label>
                 <input type="password" class="form-control" id="inputPassword5" name="password">
               </div>
             </div>
           </div>
           <div class="my-4">
-            <p class="mt-5 mb-3 text-muted text-center">You do not have an account <strong><a href="{{route('register')}}">Register</a></strong></p>
+            <p class="mt-5 mb-3 text-muted text-center">{{__("You do not have an account")}}<strong class="p-3"><a href="{{route('register')}}">{{__("Register")}}</a></strong></p>
             
           </div>
           
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          <p class="mt-5 mb-3 text-muted text-center">© AZAL TECH</p>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">{{__("Sign In")}}</button>
+          <p class="mt-5 mb-3 text-muted text-center"></p>
           
         </form>
       </div>
@@ -144,6 +99,24 @@
       }
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // تحقق من لغة الموقع
+        var userLang = document.documentElement.lang || 'en'; // يمكن تعديل هذا بناءً على اللغة الفعلية
+
+        // تغيير محاذاة النص بناءً على اللغة
+        if (userLang === 'ar') {
+          document.querySelectorAll('.form-group').forEach(function(element) {
+            element.style.textAlign = 'end'; // إذا كانت اللغة العربية، اجعل المحاذاة إلى "end"
+          });
+        } else {
+          document.querySelectorAll('.form-group').forEach(function(element) {
+            element.style.textAlign = 'start'; // إذا كانت اللغة الإنجليزية، اجعل المحاذاة إلى "start"
+          });
+        }
+      });
     </script>
+
+    
   </body>
 </html>

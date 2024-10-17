@@ -1,6 +1,6 @@
 <!doctype html>
 {{-- <html lang="ar" dir="rtl"> --}}
-  <html lang="en" dir="ltr">
+  <html lang="{{app()->getLocale()}}" dir="{{app()->getLocale() == 'ar' ? 'rtl' : 'ltr'}}">
 
     <!-- head section -->
 

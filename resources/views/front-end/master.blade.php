@@ -35,19 +35,39 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                Best Experienced Freelancer Here
+              {{__("What is an Applicant Tracking System (ATS)?")}}
               </h2>
             </div>
             <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+              {{__("The Applicant Tracking System (ATS) is software used by companies to efficiently manage job applications. It helps filter and evaluate resumes based on specific criteria, such as keywords, experience, and skills required for the job.")}}
             </p>
-            <div class="btn-box">
+            <p>
+              {{__("The ATS scans resumes electronically and ranks them according to how well they match the job requirements. If a resume is poorly formatted or lacks the right keywords, it may be excluded before the employer even sees it. Therefore, job applicants need to ensure that their resumes are designed in a way that is ATS-friendly, increasing their chances of passing the initial screening and reaching the interview stage.")}}
+            </p>
+            <p><strong>{{__("SkyCV will create your resume based on ATS standards, ensuring it is compatible with Applicant Tracking Systems used by companies to filter applications and increase your chances of securing an interview.")}}</strong></p>
+            {{-- <div class="btn-box">
               <a href="{{ url('/read-more') }}" class="btn-1">
                 Read More
               </a>
               <a href="{{ url('/hire') }}" class="btn-2">
                 Hire
               </a>
+            </div> --}}
+            <div class="btn-box">
+              @auth
+              <div class="btn-box">
+                <a href="{{route('BaiscInfo')}}" class="btn-1">
+                  {{__("Create Your CV")}}
+                </a>
+              </div>
+              @else
+              <div class="btn-box">
+                <a href="{{route('login')}}" class="btn-1">
+                  {{-- Create Your CV --}}
+                {{__("Login to create cv")}}
+                </a>
+              </div>
+              @endauth
             </div>
           </div>
         </div>
@@ -147,16 +167,48 @@
         </div>
       </div>
       <div class="detail-box">
-        <h2>
-          About Spering Company
-        </h2>
-        <p>
-          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If youThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-        </p>
-        <a href="">
-          Read More
-        </a>
+        <h3 class="mb-5">
+        {{__("?How to Boost Your Resume’s Chances in Applicant Tracking Systems")}}
+        </h3>
+        <ul style="list-style-position: inside;">
+          <li>
+              <strong>{{__("Choose Job Descriptions Carefully:")}}</strong> 
+              {{__("Use keywords from job postings to boost your chances of passing through ATS. Our site helps you with this.")}}
+          </li>
+          <li>
+              <strong>{{__("Simplicity is Key:")}}</strong> 
+              {{__("Avoid using complex tables or graphics; simpler resumes are more easily accepted by tracking systems.")}}
+          </li>
+          <li>
+              <strong>{{__("Add Specific and Accurate Information:")}}</strong> 
+              {{__("Make sure every section of your resume reflects the skills and experiences that match the job.")}} 
+              {{__("SkyCV ensures optimal organization of your details.")}}
+          </li>
+          <li>
+              <strong>{{__("Check Your Details:")}}</strong> 
+              {{__("Ensure there are no spelling or formatting errors. Our platform makes sure your resume is perfect and ready for submission.")}}
+          </li>
+      </ul>
+      
+          
+        <div class="btn-box">
+          @auth
+          <div class="btn-box">
+            <a href="{{route('BaiscInfo')}}" class="btn-1">
+              {{__("Create Your CV")}}
+            </a>
+          </div>
+          @else
+          <div class="btn-box">
+            <a href="{{route('login')}}" class="btn-1">
+              {{-- Create Your CV --}}
+            {{__("Login to create cv")}}
+            </a>
+          </div>
+          @endauth
+        </div>
       </div>
+      
     </div>
   </section>
 
@@ -326,139 +378,7 @@
 
   <!-- info section -->
 
-  <section class="info_section ">
-    <div class="info_container layout_padding-top">
-      <div class="container">
-        <div class="info_top">
-          <div class="info_logo">
-            <img src="images/logo.png" alt="" />
-            <span>
-              Spering
-            </span>
-          </div>
-          <div class="social_box">
-            <a href="#">
-              <img src="images/fb.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/twitter.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/linkedin.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/instagram.png" alt="">
-            </a>
-            <a href="#">
-              <img src="images/youtube.png" alt="">
-            </a>
-          </div>
-        </div>
-
-        <div class="info_main">
-          <div class="row">
-            <div class="col-md-3 col-lg-2">
-              <div class="info_link-box">
-                <h5>
-                  Useful Link
-                </h5>
-                <ul>
-                  <li class=" active">
-                    <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="">
-                    <a class="" href="about.html">About </a>
-                  </li>
-                  <li class="">
-                    <a class="" href="work.html">Work </a>
-                  </li>
-                  <li class="">
-                    <a class="" href="category.html">Category </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-3 ">
-              <h5>
-                Offices
-              </h5>
-              <p>
-                Readable content of a page when looking at its layoutreadable content of a page when looking at its layout
-              </p>
-            </div>
-
-            <div class="col-md-3 col-lg-2 offset-lg-1">
-              <h5>
-                Information
-              </h5>
-              <p>
-                Readable content of a page when looking at its layoutreadable content of a page when looking at its layout
-              </p>
-            </div>
-
-            <div class="col-md-3  offset-lg-1">
-              <div class="info_form ">
-                <h5>
-                  Newsletter
-                </h5>
-                <form action="">
-                  <input type="email" placeholder="Email">
-                  <button>
-                    Subscribe
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="info_contact layout_padding2">
-              <div class="row">
-                <div class="col-md-3">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/location.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Location
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/mail.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        demo@gmail.com
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-md-5">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="images/call.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                      <h6>
-                        Call +01 1234567890
-                      </h6>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  
 
   <!-- end info section -->
 

@@ -51,16 +51,16 @@
             <div class="col-md-8 mb-4">
               <div class="card shadow mb-4">
                 <div class="card-header">
-                  <strong class="card-title">Languages</strong>
+                  <strong class="card-title">{{__("Languages")}}</strong>
                 </div>
                 <div class="card-body">
                   <form class="needs-validation" method="POSt" action="{{route('storeLanguage')}}" novalidate>
                     @csrf
                         <div class="form-group mb-3">
-                            <label for="tags">Enter Language:</label>
-                            <input type="text" name="language" value="arabic(native)" id="tags" placeholder="add.." name="tags" class="form-control" data-role="tagsinput" />
+                            <label for="tags">{{__("Enter Language:")}}</label>
+                            <input type="text" name="language" value="arabic(native)" id="tags" placeholder="{{__("add..")}}" name="tags" class="form-control" data-role="tagsinput" />
                          </div>
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
                   </form>
                 </div> <!-- /.card-body -->
               </div> <!-- /.card -->
@@ -74,4 +74,37 @@
 
 
 
+@endsection
+
+@section('js')
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    var userLang = document.documentElement.lang || 'en';
+
+    document.querySelectorAll('.form-group').forEach(function(element) {
+      if (userLang === 'ar') {
+        element.style.direction = 'rtl'; // إذا كانت اللغة العربية، اجعل الاتجاه من اليمين لليسار
+        element.style.textAlign = 'right';
+      } else {
+        element.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار لليمين
+        element.style.textAlign = 'left';
+      }
+    });
+});
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var userLang = document.documentElement.lang || 'en';
+
+  document.querySelectorAll('.alert').forEach(function(row) {
+    if (userLang === 'ar') {
+      row.style.direction = 'rtl'; // إذا كانت اللغة عربية، اجعل الاتجاه من اليمين إلى اليسار
+      row.style.textAlign = 'right'; // محاذاة النص لليمين
+    } else {
+      row.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار إلى اليمين
+      row.style.textAlign = 'left'; // محاذاة النص لليسار
+    }
+  });
+}); 
+
+ </script>
 @endsection

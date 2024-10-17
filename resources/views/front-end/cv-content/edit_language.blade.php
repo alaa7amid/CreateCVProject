@@ -51,13 +51,45 @@
             <form action="{{route('updateLanguage')}}" method="post">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="tags">Edit Language :</label>
+                    <label for="tags">{{__("Edit Language :")}}</label>
                     <input type="text" name="language" id="tags" value="{{$language->language}}" placeholder="Add.." name="tags" class="form-control" data-role="tagsinput" />
                   </div>
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" type="submit">{{__("Update")}}</button>
             </form>
         </div> <!-- /.card-body -->
     </div> 
 </div>
 
+@endsection
+@section('js')
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    var userLang = document.documentElement.lang || 'en';
+
+    document.querySelectorAll('.form-group').forEach(function(element) {
+      if (userLang === 'ar') {
+        element.style.direction = 'rtl'; // إذا كانت اللغة العربية، اجعل الاتجاه من اليمين لليسار
+        element.style.textAlign = 'right';
+      } else {
+        element.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار لليمين
+        element.style.textAlign = 'left';
+      }
+    });
+});
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var userLang = document.documentElement.lang || 'en';
+
+  document.querySelectorAll('.alert').forEach(function(row) {
+    if (userLang === 'ar') {
+      row.style.direction = 'rtl'; // إذا كانت اللغة عربية، اجعل الاتجاه من اليمين إلى اليسار
+      row.style.textAlign = 'right'; // محاذاة النص لليمين
+    } else {
+      row.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار إلى اليمين
+      row.style.textAlign = 'left'; // محاذاة النص لليسار
+    }
+  });
+}); 
+
+ </script>
 @endsection

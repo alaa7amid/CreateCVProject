@@ -14,13 +14,45 @@
             <form action="{{route('updateProfileInfo')}}" method="post">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="example-textarea">Edit Profile Information</label>
+                    <label for="example-textarea">{{__("Edit Profile Information")}}</label>
                     <textarea class="form-control" id="example-textarea"  name="profile" rows="6" style="font-size: 1.25rem; height: 200px;">{{$profileInfo->profile}}</textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" type="submit">{{__("Update")}}</button>
             </form>
         </div> <!-- /.card-body -->
     </div> 
 </div>
 
+@endsection
+@section('js')
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    var userLang = document.documentElement.lang || 'en';
+
+    document.querySelectorAll('.form-group').forEach(function(element) {
+      if (userLang === 'ar') {
+        element.style.direction = 'rtl'; // إذا كانت اللغة العربية، اجعل الاتجاه من اليمين لليسار
+        element.style.textAlign = 'right';
+      } else {
+        element.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار لليمين
+        element.style.textAlign = 'left';
+      }
+    });
+});
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var userLang = document.documentElement.lang || 'en';
+
+  document.querySelectorAll('.card-header,.alert').forEach(function(row) {
+    if (userLang === 'ar') {
+      row.style.direction = 'rtl'; // إذا كانت اللغة عربية، اجعل الاتجاه من اليمين إلى اليسار
+      row.style.textAlign = 'right'; // محاذاة النص لليمين
+    } else {
+      row.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار إلى اليمين
+      row.style.textAlign = 'left'; // محاذاة النص لليسار
+    }
+  });
+});
+
+ </script>
 @endsection
