@@ -4,76 +4,65 @@
 @section('css')
 <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-    }
-
-    p {
-        color: #000;
-        font-weight: 700;
-    }
-
-    .download {
-        margin-left: 30px;
-        display: inline-block;
-        background-color: #333;
-        color: #fff;
-        padding: 10px 15px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-
-    .download i {
-        margin-right: 8px;
+      font-family: Arial, sans-serif;
+      /* text-transform: capitalize;  */
+      margin: 0;
+      padding: 20px;
+      /* background-color: #f4f4f4; */
     }
 
     .container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: #fff;
-        /* padding: 20px; */
-        /* border-radius: 5px; */
-        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     }
 
     h1, h2, h3 {
-        color: #000;
-        font-weight: 600;
+      color: #000000;
     }
 
-    .contact-info {
-        /* margin-bottom: 20px; */
+    .header, .section, .contact-info, .skills, .experience, .education {
+      margin-bottom: 20px;
     }
 
-    .contact-info p {
-        margin: 5px 0;
+    .contact-info p, .section-content p {
+      margin: 5px 0;
     }
 
-    .section {
-        /* margin-bottom: 20px; */
+    .contact-info a {
+      color: #000000;
+      text-decoration: none;
     }
 
     .section h2 {
-        border-bottom: 2px solid #000;
-        padding-bottom: 5px;
-        /* margin-bottom: 10px;
-         */
-    }
-
-    .section-content {
-        margin-left: 20px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     ul {
-        list-style-type: none;
-        padding: 0;
+      list-style-type: none;
+      padding: 0;
     }
 
     ul li {
-        margin-bottom: 5px;
-        font-weight: 400;
-        color: #000;
+      margin-bottom: 5px;
+    }
+
+    .download {
+      display: inline-block;
+      background-color: #000000;
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .download i {
+      margin-right: 8px;
     }
 </style>
 @endsection
@@ -83,49 +72,54 @@
 </a>
 
 <div class="container">
-    <header>
-        <h1>{{ $basicInfo->name }}</h1>
-        <h2>Office Manager</h2>
+    <header class="header">
+      <h1>{{ $basicInfo->name }}</h1>
+      <h2>{{ $basicInfo->jobTitle }}</h2>
     </header>
 
     <div class="contact-info">
-        <p>Email: {{ $basicInfo->email }}</p>
-        <p>Phone: {{ $basicInfo->phoneNumber }}</p>
-        <p><a href="{{$basicInfo->linkedin}}">LinkedIn Profile</a></p>
-        <p><a href="{{$basicInfo->github}}">Github Profile</a></p>
+      <p>Email: {{ $basicInfo->email }}</p>
+      <p>Phone: {{ $basicInfo->phoneNumber }}</p>
+      
+      @if (!empty($basicInfo->linkedin))
+        <p><a href="{{ $basicInfo->linkedin }}">LinkedIn Profile</a></p>
+      @endif
+    @if (!empty($basicInfo->github))
+        <p><a href="{{$basicInfo->github}}">Github Profile</a></p> 
+    @endif
+       
+</div>
 
+    <div class="section profile">
+      <h2>Profile</h2>
+      <div class="section-content">
+        <p>{{ $profile->profile }}</p>
+      </div>
     </div>
 
-    <div class="section">
-        <h2>Profile</h2>
+    <div class="section experience">
+      <h2>Experience</h2>
+       @foreach ($experiences as $experience)
         <div class="section-content">
-            <p>{{ $profile->profile }}</p>
+            <h3>{{ $experience->position }}, {{ $experience->company_name }}</h3>
+            <p>{{ $experience->startDate }} - {{ $experience->endDate }}</p>
+            <p>{{ $experience->description }}</p>
         </div>
+      @endforeach
     </div>
 
-    <div class="section">
-        <h2>Experience</h2>
-        @foreach ($experiences as $experience)
-            <div class="section-content">
-                <h3>{{ $experience->position }}, {{ $experience->company_name }}</h3>
-                <p>{{ $experience->startDate }} - {{ $experience->endDate }}</p>
-                <p>{{ $experience->description }}</p>
-            </div>
-        @endforeach
+    <div class="section education">
+      <h2>Education</h2>
+      @foreach ($educations as $education)
+        <div class="section-content">
+            <h3>{{ $education->department }}, {{ $education->education_level }}</h3>
+            <p>{{ $education->startDate }} - {{ $education->endtDate }}</p>
+            {{-- <p>It’s okay to brag about your GPA, awards, and honors. Feel free to summarize your coursework too.</p> --}}
+        </div>
+      @endforeach
     </div>
 
-    <div class="section">
-        <h2>Education</h2>
-        @foreach ($educations as $education)
-            <div class="section-content">
-                <h3>{{ $education->department }}</h3>
-                <p>{{ $education->education_level }}</p>
-                <p>{{ $education->startDate }} - {{ $education->endtDate }}</p>
-            </div>
-        @endforeach
-    </div>
-
-    <div class="section">
+    <div class="section education">
         <h2>Projects</h2>
         @foreach ($projects as $project)
             <div class="section-content">
@@ -136,15 +130,15 @@
         @endforeach
     </div>
 
-    <div class="section">
-        <h2>Skills</h2>
-        <div class="section-content">
-            <ul>
-                @foreach($skills as $skill)
-                    <li>{{ $skill }}</li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="section skills">
+      <h2>Skills</h2>
+      <div class="section-content">
+        <ul>
+            @foreach($skills as $skill)
+                <li>{{ $skill }}</li>
+            @endforeach
+        </ul>
     </div>
+
 </div>
 @endsection

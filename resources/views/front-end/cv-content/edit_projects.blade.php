@@ -42,7 +42,8 @@
                     @endforeach
                     
                     <button class="btn btn-primary" type="submit">{{__("Update")}}</button>
-                  </form>
+                  </form> 
+                  
                 </div> <!-- /.card-body -->
               </div> <!-- /.card -->
             </div> <!-- /.col -->

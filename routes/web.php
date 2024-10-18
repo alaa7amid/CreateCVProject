@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-
+use Whoops\Run;
 
 // Route::get('/test', [CvController::class,'downloadCV']);
 
@@ -92,6 +92,8 @@ Route::middleware('auth')->group(function(){
     //edit projects 
     Route::get('user/projects/edit',[frontendController::class,'editProjects'])->name('editProjects');
     Route::post('user/projects/update',[frontendController::class,'updateProjects'])->name('updateProjects');
+    Route::post('user/projects/delete/{id}',[frontendController::class,'deleteProject'])->name('deleteProject');
+    
  
 
 
@@ -124,4 +126,8 @@ Route::get('/language/{locale}', function ($lang) {
 
     // إعادة توجيه المستخدم إلى الصفحة السابقة أو إلى الصفحة الرئيسية
     return redirect()->back();
+});
+
+Route::get("/test",function(){
+    return view('welcome');
 });
