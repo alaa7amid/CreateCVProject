@@ -98,28 +98,34 @@
     </div>
 
     <div class="section experience">
-      <h2>Experience</h2>
-       @foreach ($experiences as $experience)
-        <div class="section-content">
-            <h3>{{ $experience->position }}, {{ $experience->company_name }}</h3>
-            <p>{{ $experience->startDate }} - {{ $experience->endDate }}</p>
-            <p>{{ $experience->description }}</p>
-        </div>
-      @endforeach
+      @if ($experiences->count() >= 1)
+        <h2>Experience</h2>
+        @foreach ($experiences as $experience)
+          <div class="section-content">
+              <h3>{{ $experience->position }}, {{ $experience->company_name }}</h3>
+              <p>{{ $experience->startDate }} - {{ $experience->endDate }}</p>
+              <p>{{ $experience->description }}</p>
+          </div>
+        @endforeach  
+      @endif
+      
     </div>
 
     <div class="section education">
-      <h2>Education</h2>
-      @foreach ($educations as $education)
-        <div class="section-content">
-            <h3>{{ $education->department }}, {{ $education->education_level }}</h3>
-            <p>{{ $education->startDate }} - {{ $education->endtDate }}</p>
-            {{-- <p>It’s okay to brag about your GPA, awards, and honors. Feel free to summarize your coursework too.</p> --}}
-        </div>
-      @endforeach
+      @if ($educations->count() >= 1)
+         <h2>Education</h2>
+          @foreach ($educations as $education)
+            <div class="section-content">
+                <h3>{{ $education->department }}, {{ $education->education_level }}</h3>
+                <p>{{ $education->startDate }} - {{ $education->endtDate }}</p>
+                {{-- <p>It’s okay to brag about your GPA, awards, and honors. Feel free to summarize your coursework too.</p> --}}
+            </div>
+          @endforeach 
+      @endif
     </div>
 
     <div class="section education">
+      @if ($projects->count() >= 1)
         <h2>Projects</h2>
         @foreach ($projects as $project)
             <div class="section-content">
@@ -128,6 +134,8 @@
                 <p>{{ $project->description }}</p>
             </div>
         @endforeach
+      @endif
+
     </div>
 
     <div class="section skills">

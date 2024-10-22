@@ -3,7 +3,9 @@
 use App\Http\Controllers\Backend\backendController;
 use App\Http\Controllers\Frontend\CvController;
 use App\Http\Controllers\Frontend\frontendController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\UserProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -16,11 +18,11 @@ use Whoops\Run;
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
 
@@ -61,6 +63,13 @@ Route::middleware('auth')->group(function(){
     Route::get('user/education/edit',[frontendController::class,'editEducation'])->name('editEducation');
     Route::post('user/education/update',[frontendController::class,'updateEducation'])->name('updateEducation');
 
+      //remove educations
+    Route::get('user/educations/delete', [frontendController::class, 'deleteEducations'])->name('deleteEducations');
+    Route::delete('/education/{id}', [frontendController::class, 'destroyEducation'])->name('destroyEducation');
+
+     Route::get('user/experience/delete', [frontendController::class, 'deleteExperiences'])->name('deleteExperiences');
+     Route::delete('/experience/{id}', [frontendController::class, 'destroyExperience'])->name('destroyExperience');
+ 
     //language
     Route::get('user/language',[frontendController::class,'language'])->name('language');
     Route::post('user/language/store',[frontendController::class,'storeLanguage'])->name('storeLanguage');
@@ -85,6 +94,11 @@ Route::middleware('auth')->group(function(){
     Route::get('user/experience/edit',[frontendController::class,'editExperience'])->name('editExperience');
     Route::post('user/experience/update',[frontendController::class,'updateExperience'])->name('updateExperience');
 
+     //remove experience
+     // لعرض جميع الخبرات للمستخدم
+    Route::get('user/experience/delete', [frontendController::class, 'deleteExperiences'])->name('deleteExperiences');
+    Route::delete('/experience/{id}', [frontendController::class, 'destroyExperience'])->name('destroyExperience');
+
     //projects 
     Route::get('user/projects',[frontendController::class,'projects'])->name('projects');
     Route::post('user/projects/store',[frontendController::class,'projectsStore'])->name('projectsStore');
@@ -92,7 +106,11 @@ Route::middleware('auth')->group(function(){
     //edit projects 
     Route::get('user/projects/edit',[frontendController::class,'editProjects'])->name('editProjects');
     Route::post('user/projects/update',[frontendController::class,'updateProjects'])->name('updateProjects');
-    Route::post('user/projects/delete/{id}',[frontendController::class,'deleteProject'])->name('deleteProject');
+    
+    //remove projects
+    Route::get('user/projects/delete',[frontendController::class,'deleteProjects'])->name("deleteProjects");
+    Route::delete('/projects/{id}', [frontendController::class, 'destroyProject'])->name('deleteProject');
+
     
  
 
@@ -107,11 +125,25 @@ Route::middleware('auth')->group(function(){
     //     return response()->download($filePath, 'cv-templet.blade.php');
     // })->name('downloadCV');
 
+
+    //dashboard
+    Route::get('dashboard',[backendController::class,'dashboard'])->name('dashboard.admin');
+    Route::get('dashboard/admins',[backendController::class,'admins'])->name('dashboard.admins');
+    Route::get('dashboard/admin',[backendController::class,'admin_page'])->name('admin_page');
+    Route::post('dashboard/admin/add',[backendController::class,'add_admin'])->name('add_admin');
+    Route::get('dashboard/admins/edit/{id}',[backendController::class,'edit_admin'])->name('edit_admin');
+    Route::post('dashboard/admins/update/{id}',[backendController::class,'update_admin'])->name('update_admin');
+    Route::delete('dashboard/admins/delete/{id}',[backendController::class,'delete_admin'])->name('delete_admin');
+
+    //user profile 
+    Route::get('/profile',[UserProfileController::class,'profile_page'])->name('profile_page');
+    Route::post('/profile/update/{id}',[UserProfileController::class,'update_profile'])->name('update_profile');
+    Route::post('/profile/update_password',[UserProfileController::class,'update_password'])->name('update_password');
     
 });
 
 
-Route::get('/',[frontendController::class,'index'])->name('dashboard');
+Route::get('/',[frontendController::class,'index'])->name('website');
 
 
 //Translation of website

@@ -55,10 +55,10 @@
                     </div>
                     <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
 
-                    @php
+                    {{-- @php
                         $experience = \App\Models\Experience::where('user_id',Auth::user()->id)->exists();
-                    @endphp
-                    <a href="{{ route('projects') }}" class="btn btn-secondary {{$experience ? '' : 'disabled'}}">{{__("Next")}}</a> <!-- زر "Next" -->
+                    @endphp --}}
+                    <a href="{{ route('projects') }}" class="btn btn-secondary ">{{__("Next")}}</a> <!-- زر "Next" -->
 
                   </form>
                 </div> <!-- /.card-body -->

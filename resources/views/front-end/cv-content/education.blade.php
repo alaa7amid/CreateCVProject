@@ -44,10 +44,11 @@
                                 
                                 <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
 
-                                @php
+                                {{-- @php
                                     $educationInfo = \App\Models\Education::where('user_id',Auth::user()->id)->exists();
-                                @endphp
-                                <a href="{{ route('language') }}" class="btn btn-secondary {{$educationInfo ? '': 'disabled'}}">{{__("Next")}}</a> <!-- زر "Next" -->
+                                    {{$educationInfo ? '': 'disabled'}}
+                                @endphp --}}
+                                <a href="{{ route('language') }}" class="btn btn-secondary ">{{__("Next")}}</a> <!-- زر "Next" -->
                             </form>
                         </div> <!-- /.card-body -->
                     </div> <!-- /.card -->

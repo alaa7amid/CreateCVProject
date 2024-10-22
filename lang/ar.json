@@ -96,7 +96,28 @@
     "Project Name":"اسم المشروع",
     "Technologies used":"التقنيات المستخدمة",
     "You haven't created your CV, let's start now!":"لم تقم بإنشاء سيرتك الذاتية بعد، فلنبدأ الآن!",
-    "Back to create your cv":"العودة لإنشاء سيرتك الذاتية"
+    "Back to create your cv":"العودة لإنشاء سيرتك الذاتية",
+    "Add To CV":"أضف إلى CV",
+    "Remove From CV":"الحذف من CV",
+    "Add Education Details":"إضافة تفاصيل التعليم",
+    "Add Experiences":"إضافة الخبرات",
+    "Add Projects":"إضافة المشاريع",
+    "Remove Education Details":"الحذف من التعليم",
+    "Remove Experiences":"الحذف من الخبرات",
+    "Remove Projects":"الحذف من المشاريع",
+    "Delete":"حذف",
+    "Number of site users":"عدد مستخدمي الموقع",
+    "Users":"المستخدمين",
+    "email":"البريد الالكتروني",
+    "Welcome!":"اهلا وسهلا!",
+    "Admins":"الادمنية",
+    "Action":"العمليات",
+    "Edit":"تعديل",
+    "Remove":"حذف",
+    "Add Admin":"اضافه ادمن",
+    "password":"الرمز",
+    "Leave blank if you do not want to change":"اتركه فارغًا إذا كنت لا تريد التغيير"
+
 
     
 }

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Support\Facades\Log;
+
 
 class frontendController extends Controller
 {
@@ -252,6 +254,27 @@ class frontendController extends Controller
 
     }
     
+    //delete educations
+    public function deleteEducations()
+    {
+        // جلب الخبرات التي تخص المستخدم الحالي
+        $educations = Education::where('user_id', Auth::user()->id)->get();
+        return view('front-end.cv-content.remove_education', compact('educations'));
+    }
+
+    public function destroyEducation($id)
+    {
+        // العثور على الخبرة بحسب الـ ID
+        $education = Education::find($id);
+        
+        if ($education) {
+            // حذف الخبرة
+            $education->delete();
+            return redirect()->back()->with('message', 'educations deleted successfully.');
+        }
+
+        return redirect()->back()->with('error', 'educations not found.');
+    }
 
     //Language 
     public function language(){
@@ -451,9 +474,33 @@ public function experienceStore(Request $request)
     return redirect()->back()->with('message', 'The record to update could not be found.');
 }
 
+    //delete Experiences
+    public function deleteExperiences()
+{
+    // جلب الخبرات التي تخص المستخدم الحالي
+    $experiences = Experience::where('user_id', Auth::user()->id)->get();
+    return view('front-end.cv-content.remove_experience', compact('experiences'));
+}
+
+public function destroyExperience($id)
+{
+    // العثور على الخبرة بحسب الـ ID
+    $experience = Experience::find($id);
+    
+    if ($experience) {
+        // حذف الخبرة
+        $experience->delete();
+        return redirect()->back()->with('message', 'Experience deleted successfully.');
+    }
+
+    return redirect()->back()->with('error', 'Experience not found.');
+}
+
+
     //Projects
     public function projects(){
         return view('front-end.cv-content.projects');
+        
     }
 
     //Projects Store
@@ -505,7 +552,17 @@ public function experienceStore(Request $request)
         return redirect()->back()->with('message', 'The record to update could not be found.');
     }
     
+    public function deleteProjects(){
+        $projects = Project::where('user_id', Auth::user()->id)->get();
+        return view('front-end.cv-content.remove_project', compact('projects'));
+    }
 
+    public function destroyProject($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->delete();
+        return redirect()->back()->with('success', 'Project deleted successfully');
+    }
 
 }
   
