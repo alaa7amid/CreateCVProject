@@ -10,7 +10,8 @@
 
     <div class="navbar-slide bg-white ml-lg-4" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
+        @if (Auth::check() && Auth::user()->role === 1)
+           <li class="nav-item dropdown">
           <a href="#" id="dashboardDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="ml-lg-2">{{__("Dashboard")}}</span><span class="sr-only">(current)</span>
           </a>
@@ -21,7 +22,9 @@
             <a class="nav-link pl-lg-2" href="./dashboard-saas.html"><span class="ml-1">Saas Dashboard</span></a>
             <a class="nav-link pl-lg-2" href="./dashboard-system.html"><span class="ml-1">Systems</span></a>
           </div>
-        </li>
+        </li> 
+        @endif
+        
 
         <li class="nav-item dropdown">
           <a href="#" id="ui-elementsDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,6 +39,8 @@
             {{-- <a class="nav-link pl-lg-2" href="{{route('editImage')}}"><span class="ml-1">Edit Image</span></a> --}}
             <a class="nav-link pl-lg-2" href="{{route('editExperience')}}"><span class="ml-1">{{__("Edit Experiences")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('editProjects')}}"><span class="ml-1">{{__("Edit Projects")}}</span></a>
+            <a class="nav-link pl-lg-2" href="{{route('CertificatesEdit')}}"><span class="ml-1">{{__("Edit Certificate")}}</span></a>
+
             {{-- <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a> --}}
           </div>
         </li>
@@ -48,6 +53,8 @@
             <a class="nav-link pl-lg-2" href="{{route('education')}}"><span class="ml-1">{{__("Add Education Details")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('experience')}}"><span class="ml-1">{{__("Add Experiences")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('projects')}}"><span class="ml-1">{{__("Add Projects")}}</span></a>
+            <a class="nav-link pl-lg-2" href="{{route('Certificates')}}"><span class="ml-1">{{__("Add certificates, courses")}}</span></a>
+
             {{-- <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a> --}}
           </div>
         </li>

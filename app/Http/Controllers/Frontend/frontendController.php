@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\BasicInfo;
+use App\Models\Certificate;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Image;
@@ -563,6 +564,54 @@ public function destroyExperience($id)
         $project->delete();
         return redirect()->back()->with('success', 'Project deleted successfully');
     }
+
+    //Certificates
+    public function Certificates(){
+        return view('front-end.cv-content.Certificates');
+    }
+
+    //Certificates store
+    public function CertificateStore(Request $request){
+
+        $request->validate([
+            'certificates_name' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+        $Certificate = new Certificate();
+        $Certificate->user_id = Auth::user()->id;
+        $Certificate->certificates_name = $request->certificates_name;
+        $Certificate->description = $request->description;
+        $Certificate->save();
+
+        return redirect()->back()->with('message', 'The Certificates has been successfully entered.');
+    }
+
+    //Certificates edit
+    public function CertificatesEdit(){
+        $certificates = Certificate::where('user_id',Auth::user()->id)->get();
+        return view('front-end.cv-content.edit_certificates',compact('certificates'));
+    }
+    //Certificates update
+    public function CertificatesUpdate(Request $request)
+    {
+        $certificates = Certificate::where('user_id', Auth::user()->id)->get();
+        if ($certificates->isNotEmpty()) {
+            foreach ($certificates as $certificate) {
+                if (isset($request->certificates[$certificate->id])) {
+                    $certificate->update([
+                        'certificates_name' => $request->certificates[$certificate->id]['certificates_name'],
+                        'description' => $request->certificates[$certificate->id]['description'],
+                    ]);
+                }
+            }
+            return redirect()->back()->with('message', 'The certificates details have been updated successfully.');
+        }
+
+        return redirect()->back()->with('message', 'The record to update could not be found.');
+    }
+
+
 
 }
   

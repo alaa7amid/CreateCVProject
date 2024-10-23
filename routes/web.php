@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\frontendController;
 // use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\UserProfileController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -111,7 +112,15 @@ Route::middleware('auth')->group(function(){
     Route::get('user/projects/delete',[frontendController::class,'deleteProjects'])->name("deleteProjects");
     Route::delete('/projects/{id}', [frontendController::class, 'destroyProject'])->name('deleteProject');
 
+
+    //certificates
+    Route::get('user/certificates',[frontendController::class,'Certificates'])->name('Certificates');
+    Route::post('user/certificates/store',[frontendController::class,'CertificateStore'])->name('CertificateStore');
     
+    //edit certificates 
+    Route::get('user/certificates/edit',[frontendController::class,'CertificatesEdit'])->name('CertificatesEdit');
+    Route::post('user/certificates/update',[frontendController::class,'CertificatesUpdate'])->name('CertificatesUpdate');
+   
  
 
 
@@ -127,13 +136,13 @@ Route::middleware('auth')->group(function(){
 
 
     //dashboard
-    Route::get('dashboard',[backendController::class,'dashboard'])->name('dashboard.admin');
-    Route::get('dashboard/admins',[backendController::class,'admins'])->name('dashboard.admins');
-    Route::get('dashboard/admin',[backendController::class,'admin_page'])->name('admin_page');
-    Route::post('dashboard/admin/add',[backendController::class,'add_admin'])->name('add_admin');
-    Route::get('dashboard/admins/edit/{id}',[backendController::class,'edit_admin'])->name('edit_admin');
-    Route::post('dashboard/admins/update/{id}',[backendController::class,'update_admin'])->name('update_admin');
-    Route::delete('dashboard/admins/delete/{id}',[backendController::class,'delete_admin'])->name('delete_admin');
+    Route::get('dashboard',[backendController::class,'dashboard'])->name('dashboard.admin')->middleware('admin');
+    Route::get('dashboard/admins',[backendController::class,'admins'])->name('dashboard.admins')->middleware('admin');
+    Route::get('dashboard/admin',[backendController::class,'admin_page'])->name('admin_page')->middleware('admin');
+    Route::post('dashboard/admin/add',[backendController::class,'add_admin'])->name('add_admin')->middleware('admin');
+    Route::get('dashboard/admins/edit/{id}',[backendController::class,'edit_admin'])->name('edit_admin')->middleware('admin');
+    Route::post('dashboard/admins/update/{id}',[backendController::class,'update_admin'])->name('update_admin')->middleware('admin');
+    Route::delete('dashboard/admins/delete/{id}',[backendController::class,'delete_admin'])->name('delete_admin')->middleware('admin');
 
     //user profile 
     Route::get('/profile',[UserProfileController::class,'profile_page'])->name('profile_page');

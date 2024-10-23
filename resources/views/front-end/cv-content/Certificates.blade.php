@@ -16,20 +16,15 @@
             <div class="col-md-8 mb-4">
               <div class="card shadow mb-4">
                 <div class="card-header">
-                  <strong class="card-title">{{__("Project Details")}}</strong>
+                  <strong class="card-title">{{__("Certificates and Courses")}}</strong>
                 </div>
                 <div class="card-body">
-                  <form class="needs-validation" method="POST" action="{{route('projectsStore')}}" novalidate>
+                  <form class="needs-validation" method="POST" action="{{route('CertificateStore')}}" novalidate>
                     @csrf
                     <div class="form-group mb-3">
-                      <label for="address-wpalaceholder">{{__("Project Name")}}</label>
-                      <input type="text" name="project_name" id="address-wpalaceholder" class="form-control"
+                      <label for="address-wpalaceholder">{{__("Certificates,Courses Name")}}</label>
+                      <input type="text" name="certificates_name" id="address-wpalaceholder" class="form-control"
                          required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="address-wpalaceholder">{{__("Technologies used")}}</label>
-                        <input type="text" name="Technologies" id="address-wpalaceholder" class="form-control"
-                       required>
                     </div>
                    
                     <div class="form-group mb-3">
@@ -41,7 +36,7 @@
                     {{-- @php
                     $projects = \App\Models\project::where('user_id',Auth::user()->id)->exists();
                 @endphp --}}
-                <a href="{{ route('Certificates') }}" class="btn btn-secondary">{{__("Next")}}</a> <!-- زر "Next" -->
+                    <a href="{{ route('createCv') }}" class="btn btn-secondary">{{__("Next")}}</a> <!-- زر "Next" -->
                   </form>
                 </div> <!-- /.card-body -->
               </div> <!-- /.card -->
