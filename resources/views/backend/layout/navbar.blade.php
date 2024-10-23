@@ -67,6 +67,7 @@
             <a class="nav-link pl-lg-2" href="{{route('deleteEducations')}}"><span class="ml-1">{{__("Remove Education Details")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('deleteExperiences')}}"><span class="ml-1">{{__("Remove Experiences")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('deleteProjects')}}"><span class="ml-1">{{__("Remove Projects")}}</span></a>
+            <a class="nav-link pl-lg-2" href="{{route('deleteCertification')}}"><span class="ml-1">{{__("Remove Certificates")}}</span></a>
             {{-- <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a> --}}
           </div>
         </li>

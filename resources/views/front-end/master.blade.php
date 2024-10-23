@@ -78,79 +78,6 @@
 
   <!-- end experience section -->
 
-  <!-- category section -->
-
-  {{-- <section class="category_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Category
-        </h2>
-      </div>
-      <div class="category_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c1.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Design & Arts
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c2.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Web Development
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c3.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              SEO Markting
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c4.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Video Edting
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c5.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Logo Design
-            </h5>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="images/c6.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Game Design
-            </h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --}}
 
 
   <!-- end category section -->
@@ -212,165 +139,91 @@
     </div>
   </section>
 
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-9 mx-auto">
+          <div class="img-box">
+            <img src="images/about-img.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="detail-box">
+        <h3 class="mb-5">
+          {{__("نصائح لإنشاء سيرة ذاتية تتوافق مع نظام تتبع المتقدمين (ATS)")}}
+        </h3>
+        <ul style="list-style-position: inside;" >
+          <li class="mb-2">
+            <strong>{{__("استخدم الكلمات المفتاحية بذكاء:")}}</strong> 
+            {{__("قم بتحليل وصف الوظيفة وأدرج الكلمات المفتاحية ذات الصلة في سيرتك الذاتية. ركز على المهارات والمؤهلات والمصطلحات المذكورة بشكل متكرر.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("اختر تنسيقًا بسيطًا:")}}</strong> 
+            {{__("تجنب استخدام تخطيطات معقدة أو رسومات أو جداول. استخدم خطوطًا قياسية وعناوين واضحة لضمان سهولة قراءة السيرة الذاتية من قبل نظام ATS.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("خصص سيرتك الذاتية لكل طلب:")}}</strong> 
+            {{__("قم بتخصيص سيرتك الذاتية لكل وظيفة تتقدم لها. أظهر الخبرات والمهارات الأكثر صلة بالمتطلبات المحددة للوظيفة.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("ركز على الإنجازات:")}}</strong> 
+            {{__("بدلاً من مجرد سرد الواجبات الوظيفية، قم بتسليط الضوء على إنجازاتك. استخدم مقاييس قابلة للقياس لتوضيح تأثيرك في الأدوار السابقة.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("استخدم رؤوس أقسام تقليدية:")}}</strong> 
+            {{__("التزم بالرؤوس التقليدية مثل \"الخبرة\" و\"التعليم\" و\"المهارات\". هذا يساعد نظام ATS على تحديد وتصنيف المعلومات بدقة.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("تجنب الاختصارات غير الشائعة:")}}</strong> 
+            {{__("استخدم المصطلحات الكاملة بدلاً من الاختصارات التي قد لا يتعرف عليها نظام ATS. على سبيل المثال، اكتب \"بكالوريوس آداب\" بدلاً من \"ب.أ\".")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("تحقق من الأخطاء الإملائية والنحوية:")}}</strong> 
+            {{__("راجع سيرتك الذاتية بعناية. قد يرفض نظام ATS السير الذاتية التي تحتوي على أخطاء أو زلات، لأنها قد تشير إلى نقص في الانتباه للتفاصيل.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("اجعلها موجزة:")}}</strong> 
+            {{__("حاول أن تكون سيرتك الذاتية في صفحة واحدة إذا كان لديك أقل من 10 سنوات من الخبرة. كن مختصرًا وضمّن فقط المعلومات ذات الصلة للحفاظ على التركيز.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("استخدم الأفعال القوية:")}}</strong> 
+            {{__("ابدأ النقاط الرئيسية بأفعال قوية مثل \"طورت\"، \"أدارت\"، أو \"نفذت\" للتعبير عن مساهماتك بفعالية.")}}
+          </li>
+          <li class="mb-2">
+            <strong>{{__("احفظها بالتنسيق الصحيح:")}}</strong> 
+            {{__("احفظ سيرتك الذاتية بصيغة PDF أو مستند Word، حيث إن هذه الصيغ مقبولة عادةً من قبل نظام ATS. تحقق من قائمة الوظيفة لمتطلبات نوع الملف المحددة.")}}
+          </li>
+        </ul>
+        <div class="alert alert-info mt-4" role="alert">
+          <strong>{{__("ملاحظة:")}}</strong> 
+          {{__("النظام يدعم اللغة الإنجليزية فقط، لذا تأكد من إعداد سيرتك الذاتية باللغة الإنجليزية لتحقيق أفضل النتائج.")}}
+        </div>
+        
+        <div class="btn-box">
+          @auth
+          <div class="btn-box">
+            <a href="{{route('BaiscInfo')}}" class="btn-1">
+              {{__("Create Your CV")}}
+            </a>
+          </div>
+          @else
+          <div class="btn-box">
+            <a href="{{route('login')}}" class="btn-1">
+              {{__("Login to create cv")}}
+            </a>
+          </div>
+          @endauth
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
   <!-- end about section -->
 
   <!-- freelance section -->
 
-  {{-- <section class="freelance_section ">
-    <div id="accordion">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-5 offset-md-1">
-            <div class="detail-box">
-              <div class="heading_container">
-                <h2>
-                  Work Freelaner Has Done
-                </h2>
-              </div>
-              <div class="tab_container">
-                <div class="t-link-box" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <div class="img-box">
-                    <img src="images/f1.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      $250 Million
-                    </h5>
-                    <h3>
-                      Paid to Freelancers
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <div class="img-box">
-                    <img src="images/f2.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      2 Million
-                    </h5>
-                    <h3>
-                      Paid Invoices
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <div class="img-box">
-                    <img src="images/f3.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      700,000
-                    </h5>
-                    <h3>
-                      Worldwide Freelancer
-                    </h3>
-                  </div>
-                </div>
-                <div class="t-link-box collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  <div class="img-box">
-                    <img src="images/f4.png" alt="">
-                  </div>
-                  <div class="detail-box">
-                    <h5>
-                      98%
-                    </h5>
-                    <h3>
-                      Customer <br>
-                      Satisfaction Rate
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-            <div class="collapse" id="collapseFour" aria-labelledby="headingfour" data-parent="#accordion">
-              <div class="img-box">
-                <img src="images/freelance-img.jpg" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --}}
-
-  <!-- end freelance section -->
-
-  <!-- client section -->
-
-  {{-- <section class="client_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-md-10 mx-auto">
-          <div class="heading_container">
-            <h2>
-              Testimonial
-            </h2>
-          </div>
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="detail-box">
-                  <h4>
-                    John Hissona
-                  </h4>
-                  <p>
-                    passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If youThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in s
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="detail-box">
-                  <h4>
-                    John Hissona
-                  </h4>
-                  <p>
-                    passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If youThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in s
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="detail-box">
-                  <h4>
-                    John Hissona
-                  </h4>
-                  <p>
-                    passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If youThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in s
-                  </p>
-                  <img src="images/quote.png" alt="">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --}}
+  
 
   <!-- end client section -->
 

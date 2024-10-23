@@ -119,7 +119,9 @@
     "Leave blank if you do not want to change":"اتركه فارغًا إذا كنت لا تريد التغيير",
     "Certificates and Courses":"الشهادات والدورات",
     "Certificates,Courses Name":"الشهادات واسم الدورة",
-    "Add certificates, courses":"إضافة الشهادات ، الكورسات"
+    "Add certificates, courses":"إضافة الشهادات ، الكورسات",
+    "Remove Certificates":"إزالة الشهادات",
+    "Edit Certificate":"تعديل الشهادة"
 
 
     

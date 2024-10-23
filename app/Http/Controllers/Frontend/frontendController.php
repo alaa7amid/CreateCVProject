@@ -562,7 +562,7 @@ public function destroyExperience($id)
     {
         $project = Project::findOrFail($id);
         $project->delete();
-        return redirect()->back()->with('success', 'Project deleted successfully');
+        return redirect()->back()->with('message', 'Project deleted successfully');
     }
 
     //Certificates
@@ -611,7 +611,19 @@ public function destroyExperience($id)
         return redirect()->back()->with('message', 'The record to update could not be found.');
     }
 
+    //remove certifigation
+    public function deleteCertification(){
+        $certificates = Certificate::where('user_id',Auth::user()->id)->get();
+        return view('front-end.cv-content.remove_certification',compact('certificates'));
+    }
 
+    public function destroyCertificatio($id){
+        $Certificatio = Certificate::find($id);
+        if($Certificatio){
+            $Certificatio->delete();
+            return redirect()->back()->with('message', 'Certificatio deleted successfully');
+        }
+    }
 
 }
   

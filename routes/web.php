@@ -121,6 +121,9 @@ Route::middleware('auth')->group(function(){
     Route::get('user/certificates/edit',[frontendController::class,'CertificatesEdit'])->name('CertificatesEdit');
     Route::post('user/certificates/update',[frontendController::class,'CertificatesUpdate'])->name('CertificatesUpdate');
    
+    //remove certificates
+    Route::get('user/certificates/delete',[frontendController::class,'deleteCertification'])->name('deleteCertification');
+    Route::delete('user/certificates/{id}',[frontendController::class,'destroyCertificatio'])->name('destroyCertificatio');
  
 
 
