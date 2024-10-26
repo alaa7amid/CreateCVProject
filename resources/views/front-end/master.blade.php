@@ -55,7 +55,7 @@
             </div> --}}
             <div class="btn-box">
               @auth
-              <div class="btn-box">
+              <div class="btn-box"> 
                 <a href="{{route('BaiscInfo')}}" class="btn-1">
                   {{__("Create Your CV")}}
                 </a>
@@ -98,27 +98,27 @@
         {{__("?How to Boost Your Resume’s Chances in Applicant Tracking Systems")}}
         </h3>
         <ul style="list-style-position: inside;">
-          <li>
+          <li class="mb-2">
               <strong>{{__("Choose Job Descriptions Carefully:")}}</strong> 
               {{__("Use keywords from job postings to boost your chances of passing through ATS. Our site helps you with this.")}}
           </li>
-          <li>
+          <li class="mb-2">
               <strong>{{__("Simplicity is Key:")}}</strong> 
               {{__("Avoid using complex tables or graphics; simpler resumes are more easily accepted by tracking systems.")}}
           </li>
-          <li>
+          <li class="mb-2">
               <strong>{{__("Add Specific and Accurate Information:")}}</strong> 
               {{__("Make sure every section of your resume reflects the skills and experiences that match the job.")}} 
               {{__("SkyCV ensures optimal organization of your details.")}}
           </li>
-          <li>
+          <li class="mb-2">
               <strong>{{__("Check Your Details:")}}</strong> 
               {{__("Ensure there are no spelling or formatting errors. Our platform makes sure your resume is perfect and ready for submission.")}}
           </li>
       </ul>
       
           
-        <div class="btn-box">
+        <div class="detail-box">
           @auth
           <div class="btn-box">
             <a href="{{route('BaiscInfo')}}" class="btn-1">
@@ -135,8 +135,15 @@
           @endauth
         </div>
       </div>
-      
+      <br>
+   
+
+      <div class="alert alert-info mt-4" role="alert">
+        <strong>{{__("Note:")}}</strong> 
+        {{__("The system supports English only, so make sure to prepare your resume in English for the best results.")}}
+      </div>
     </div>
+    
   </section>
 
   <section class="about_section layout_padding">
@@ -150,56 +157,50 @@
       </div>
       <div class="detail-box">
         <h3 class="mb-5">
-          {{__("نصائح لإنشاء سيرة ذاتية تتوافق مع نظام تتبع المتقدمين (ATS)")}}
+          {{__("Tips for Creating an ATS-Compatible Resume")}}
         </h3>
         <ul style="list-style-position: inside;" >
           <li class="mb-2">
-            <strong>{{__("استخدم الكلمات المفتاحية بذكاء:")}}</strong> 
-            {{__("قم بتحليل وصف الوظيفة وأدرج الكلمات المفتاحية ذات الصلة في سيرتك الذاتية. ركز على المهارات والمؤهلات والمصطلحات المذكورة بشكل متكرر.")}}
+            <strong>{{__("Use Keywords Smartly:")}}</strong> 
+            {{__("Analyze the job description and include relevant keywords in your resume. Focus on the skills, qualifications, and terms mentioned frequently.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("اختر تنسيقًا بسيطًا:")}}</strong> 
-            {{__("تجنب استخدام تخطيطات معقدة أو رسومات أو جداول. استخدم خطوطًا قياسية وعناوين واضحة لضمان سهولة قراءة السيرة الذاتية من قبل نظام ATS.")}}
+            <strong>{{__("Choose a Simple Format:")}}</strong> 
+            {{__("Avoid complex layouts, graphics, or tables. Use standard fonts and clear headings to ensure your resume is easily readable by ATS.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("خصص سيرتك الذاتية لكل طلب:")}}</strong> 
-            {{__("قم بتخصيص سيرتك الذاتية لكل وظيفة تتقدم لها. أظهر الخبرات والمهارات الأكثر صلة بالمتطلبات المحددة للوظيفة.")}}
+            <strong>{{__("Tailor Your Resume for Each Application:")}}</strong> 
+            {{__("Customize your resume for each job you apply to. Highlight the experiences and skills most relevant to the specific job requirements.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("ركز على الإنجازات:")}}</strong> 
-            {{__("بدلاً من مجرد سرد الواجبات الوظيفية، قم بتسليط الضوء على إنجازاتك. استخدم مقاييس قابلة للقياس لتوضيح تأثيرك في الأدوار السابقة.")}}
+            <strong>{{__("Focus on Achievements:")}}</strong> 
+            {{__("Instead of just listing job duties, highlight your accomplishments. Use measurable metrics to show your impact in previous roles.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("استخدم رؤوس أقسام تقليدية:")}}</strong> 
-            {{__("التزم بالرؤوس التقليدية مثل \"الخبرة\" و\"التعليم\" و\"المهارات\". هذا يساعد نظام ATS على تحديد وتصنيف المعلومات بدقة.")}}
+            <strong>{{__("Use Traditional Section Headings:")}}</strong> 
+            {{__("Stick to traditional headings like 'Experience,' 'Education,' and 'Skills.' This helps ATS accurately identify and categorize the information.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("تجنب الاختصارات غير الشائعة:")}}</strong> 
-            {{__("استخدم المصطلحات الكاملة بدلاً من الاختصارات التي قد لا يتعرف عليها نظام ATS. على سبيل المثال، اكتب \"بكالوريوس آداب\" بدلاً من \"ب.أ\".")}}
+            <strong>{{__("Avoid Uncommon Abbreviations:")}}</strong> 
+            {{__("Use full terms instead of abbreviations that may not be recognized by ATS. For example, write 'Bachelor of Arts' instead of 'B.A.'")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("تحقق من الأخطاء الإملائية والنحوية:")}}</strong> 
-            {{__("راجع سيرتك الذاتية بعناية. قد يرفض نظام ATS السير الذاتية التي تحتوي على أخطاء أو زلات، لأنها قد تشير إلى نقص في الانتباه للتفاصيل.")}}
+            <strong>{{__("Check for Spelling and Grammar Errors:")}}</strong> 
+            {{__("Review your resume carefully. ATS may reject resumes with errors, as they may indicate a lack of attention to detail.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("اجعلها موجزة:")}}</strong> 
-            {{__("حاول أن تكون سيرتك الذاتية في صفحة واحدة إذا كان لديك أقل من 10 سنوات من الخبرة. كن مختصرًا وضمّن فقط المعلومات ذات الصلة للحفاظ على التركيز.")}}
+            <strong>{{__("Use Strong Action Verbs:")}}</strong> 
+            {{__("Start bullet points with strong action verbs like 'Developed,' 'Managed,' or 'Implemented' to effectively communicate your contributions.")}}
           </li>
           <li class="mb-2">
-            <strong>{{__("استخدم الأفعال القوية:")}}</strong> 
-            {{__("ابدأ النقاط الرئيسية بأفعال قوية مثل \"طورت\"، \"أدارت\"، أو \"نفذت\" للتعبير عن مساهماتك بفعالية.")}}
-          </li>
-          <li class="mb-2">
-            <strong>{{__("احفظها بالتنسيق الصحيح:")}}</strong> 
-            {{__("احفظ سيرتك الذاتية بصيغة PDF أو مستند Word، حيث إن هذه الصيغ مقبولة عادةً من قبل نظام ATS. تحقق من قائمة الوظيفة لمتطلبات نوع الملف المحددة.")}}
+            <strong>{{__("Save It in the Right Format:")}}</strong> 
+            {{__("Save your resume as a PDF, as this format is typically accepted by ATS. Check the job listing for specific file format requirements.")}}
           </li>
         </ul>
-        <div class="alert alert-info mt-4" role="alert">
-          <strong>{{__("ملاحظة:")}}</strong> 
-          {{__("النظام يدعم اللغة الإنجليزية فقط، لذا تأكد من إعداد سيرتك الذاتية باللغة الإنجليزية لتحقيق أفضل النتائج.")}}
-        </div>
         
-        <div class="btn-box">
+        
+        
+        <div class="detail-box">
           @auth
           <div class="btn-box">
             <a href="{{route('BaiscInfo')}}" class="btn-1">

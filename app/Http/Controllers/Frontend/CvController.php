@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\BasicInfo;
+use App\Models\Certificate;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Image;
@@ -39,9 +40,10 @@ class CvController extends Controller
         $experiences = Experience::where('user_id',Auth::user()->id)->get();
         
         $projects = Project::where('user_id',Auth::user()->id)->get();
+        $Certificates = Certificate::where('user_id',Auth::user()->id)->get();
 
         return view('front-end.CV.cv-templet',compact('imageProfile','basicInfo','educations',
-        'languages','profile','skills','experiences','projects'));
+        'languages','profile','skills','experiences','projects','Certificates'));
     }
 
 
@@ -72,11 +74,12 @@ class CvController extends Controller
         $experiences = Experience::where('user_id',Auth::user()->id)->get();
         
         $projects = Project::where('user_id',Auth::user()->id)->get();
+        $Certificates = Certificate::where('user_id',Auth::user()->id)->get();
 
         $mpdf = new \Mpdf\Mpdf();
 
     // عرض السيرة الذاتية
-    $html = view('front-end.CV.cv-save', compact('basicInfo', 'profile', 'educations', 'languages', 'skills', 'experiences', 'projects'))->render();
+    $html = view('front-end.CV.cv-save', compact('basicInfo', 'profile', 'educations', 'languages', 'skills', 'experiences', 'projects','Certificates'))->render();
 
     // كتابة المحتوى إلى PDF
     $mpdf->WriteHTML($html);

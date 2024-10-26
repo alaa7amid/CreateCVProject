@@ -36,6 +36,10 @@
                         <label for="custom-phone">{{__("password")}}</label>
                         <input class="form-control" name="password" id="custom-phone" maxlength="14" required>
                       </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="custom-phone">{{__("role")}}</label>
+                        <input class="form-control" type="checkbox" name="role" id="role" required>
+                      </div>
                     </div> <!-- /.form-row -->
                     <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
                   </form>

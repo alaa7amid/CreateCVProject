@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white flex-row border-bottom shadow">
   <div class="container-fluid d-flex justify-content-center align-items-center">
-    <a class="navbar-brand mx-lg-1 mr-0" href="{{route('dashboard.admin')}}">
+    <a class="navbar-brand mx-lg-1 mr-0" href="{{route('website')}}">
       <span>SkyCV</span>
     </a>
 
@@ -18,9 +18,7 @@
           <div class="dropdown-menu" aria-labelledby="dashboardDropdown">
             <a class="nav-link pl-lg-2" href="{{route('dashboard.admin')}}"><span class="ml-1">{{__("Dashboard")}}</span></a>
             <a class="nav-link pl-lg-2" href="{{route('dashboard.admins')}}"><span class="ml-1">{{__("Admins")}}</span></a>
-            <a class="nav-link pl-lg-2" href="./dashboard-sales.html"><span class="ml-1">E-commerce</span></a>
-            <a class="nav-link pl-lg-2" href="./dashboard-saas.html"><span class="ml-1">Saas Dashboard</span></a>
-            <a class="nav-link pl-lg-2" href="./dashboard-system.html"><span class="ml-1">Systems</span></a>
+
           </div>
         </li> 
         @endif
@@ -49,11 +47,26 @@
           <a href="#" id="ui-elementsDropdown" class="dropdown-toggle nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="ml-lg-2">{{__("Add To CV")}}</span>
           </a>
+          @php
+            use App\Models\BasicInfo;
+            use App\Models\Language;
+            use App\Models\Skills;
+            use App\Models\ProfileInfo;
+
+            $basicInfo = BasicInfo::where('user_id',Auth::user()->id)->first();
+            $language = Language::where('user_id',Auth::user()->id)->first();
+            $skills = Skills::where('user_id',Auth::user()->id)->first();
+            $profileInfo = ProfileInfo::where('user_id',Auth::user()->id)->first();
+
+          @endphp
+
           <div class="dropdown-menu" aria-labelledby="ui-elementsDropdown">
-            <a class="nav-link pl-lg-2" href="{{route('education')}}"><span class="ml-1">{{__("Add Education Details")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('experience')}}"><span class="ml-1">{{__("Add Experiences")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('projects')}}"><span class="ml-1">{{__("Add Projects")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('Certificates')}}"><span class="ml-1">{{__("Add certificates, courses")}}</span></a>
+
+            <a class="nav-link pl-lg-2 {{ (!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : '' }}" href="{{route('education')}}"><span class="ml-1">{{__("Add Education Details")}}</span></a>
+
+            <a class="nav-link pl-lg-2 {{(!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : ''}}" href="{{route('experience')}}"><span class="ml-1">{{__("Add Experiences")}}</span></a>
+            <a class="nav-link pl-lg-2 {{(!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : ''}}" href="{{route('projects')}}"><span class="ml-1">{{__("Add Projects")}}</span></a>
+            <a class="nav-link pl-lg-2 {{(!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : ''}}" href="{{route('Certificates')}}"><span class="ml-1">{{__("Add certificates, courses")}}</span></a>
 
             {{-- <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a> --}}
           </div>
@@ -64,10 +77,10 @@
             <span class="ml-lg-2">{{__("Remove From CV")}}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="ui-elementsDropdown">
-            <a class="nav-link pl-lg-2" href="{{route('deleteEducations')}}"><span class="ml-1">{{__("Remove Education Details")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('deleteExperiences')}}"><span class="ml-1">{{__("Remove Experiences")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('deleteProjects')}}"><span class="ml-1">{{__("Remove Projects")}}</span></a>
-            <a class="nav-link pl-lg-2" href="{{route('deleteCertification')}}"><span class="ml-1">{{__("Remove Certificates")}}</span></a>
+            <a class="nav-link pl-lg-2 {{ (!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : '' }}" href="{{route('deleteEducations')}}"><span class="ml-1">{{__("Remove Education Details")}}</span></a>
+            <a class="nav-link pl-lg-2 {{ (!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : '' }}" href="{{route('deleteExperiences')}}"><span class="ml-1">{{__("Remove Experiences")}}</span></a>
+            <a class="nav-link pl-lg-2 {{ (!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : '' }}" href="{{route('deleteProjects')}}"><span class="ml-1">{{__("Remove Projects")}}</span></a>
+            <a class="nav-link pl-lg-2 {{ (!$basicInfo || !$language || !$skills || !$profileInfo) ? 'disabled' : '' }}" href="{{route('deleteCertification')}}"><span class="ml-1">{{__("Remove Certificates")}}</span></a>
             {{-- <a class="nav-link pl-lg-2" href="./ui-progress.html"><span class="ml-1">Progress</span></a> --}}
           </div>
         </li>
@@ -89,9 +102,7 @@
           </span>
         </a>
         <ul class="dropdown-menu dropdown" aria-labelledby="navbarDropdownMenuLink">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Settings</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="{{route('profile_page')}}">{{__("Profile")}}</a>
           </li>

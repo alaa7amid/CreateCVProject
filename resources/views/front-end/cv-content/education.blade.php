@@ -29,17 +29,17 @@
                                 <div class="form-row">
                                     <div class="col-md-8 mb-3">
                                         <label for="exampleInputEmail2">{{__("Start Date")}}</label>
-                                        <input type="text" name="startDate" class="form-control drgpicker" id="date-input1" value="04/24/2020" aria-describedby="button-addon2">
+                                        <input type="text" name="startDate" class="form-control drgpicker" id="date-input1"  aria-describedby="button-addon2">
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="custom-phone">{{__("End Date")}}</label>
-                                        <input type="text" name="endDate" class="form-control drgpicker" id="date-input1" value="04/24/2020" aria-describedby="button-addon2">
+                                        <input type="text" name="endDate" class="form-control drgpicker" id="date-input1"  aria-describedby="button-addon2">
                                     </div>
                                 </div> <!-- /.form-row -->
                                 <div class="form-group mb-3">
                                     <label for="address-wpalaceholder">{{__("Major")}}</label>
                                     <input type="text" name="department" id="address-wpalaceholder" class="form-control"
-                                        placeholder="Enter.." required>
+                                         required>
                                 </div>
                                 
                                 <button class="btn btn-primary" type="submit">{{__("Save")}}</button>

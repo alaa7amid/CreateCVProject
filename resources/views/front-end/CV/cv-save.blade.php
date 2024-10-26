@@ -111,6 +111,19 @@
     </div>
 
     <div class="section education">
+      @if ($Certificates->count() >= 1)
+        <h2>Certificates</h2>
+        @foreach ($Certificates as $Certificate)
+            <div class="section-content">
+                <h3>{{ $Certificate->certificates_name }}</h3>
+                <p>{{ $Certificate->description }}</p>
+            </div>
+        @endforeach
+      @endif
+
+    </div>
+    
+    <div class="section education">
         <h2>Projects</h2>
         @foreach ($projects as $project)
             <div class="section-content">

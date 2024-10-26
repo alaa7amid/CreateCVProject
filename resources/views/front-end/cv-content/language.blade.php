@@ -95,7 +95,7 @@
   document.addEventListener('DOMContentLoaded', function() {
   var userLang = document.documentElement.lang || 'en';
 
-  document.querySelectorAll('.alert').forEach(function(row) {
+  document.querySelectorAll('.alert,.card-header').forEach(function(row) {
     if (userLang === 'ar') {
       row.style.direction = 'rtl'; // إذا كانت اللغة عربية، اجعل الاتجاه من اليمين إلى اليسار
       row.style.textAlign = 'right'; // محاذاة النص لليمين

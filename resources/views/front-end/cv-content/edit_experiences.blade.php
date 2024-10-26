@@ -15,7 +15,7 @@
                 <div class="col-md-8 mb-4">
                     <div class="card shadow mb-4">
                         <div class="card-header">
-                            <strong class="card-title">{{__("Experiences Edit")}}</strong>
+                            <strong class="card-title">{{__(" Edit Experiences Details،Volunteer campaigns")}}</strong>
                         </div>
                         <div class="card-body"> 
                             <form class="needs-validation" method="POST" action="{{route('updateExperience')}}" novalidate>

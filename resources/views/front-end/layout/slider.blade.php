@@ -19,8 +19,8 @@
             <div class="row">
               <div class="col-md-5 offset-md-1">
                 <div class="detail-box">
-                  <h1>
-                    Sky-CV <br>
+                  <h1> 
+                    SkyCV <br>
                     {{__("offers you an easy way to create a resume that")}} <br>
                     {{__("with ATS standards.")}}
                   </h1>

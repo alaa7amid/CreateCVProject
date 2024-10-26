@@ -117,11 +117,49 @@
     "Add Admin":"اضافه ادمن",
     "password":"الرمز",
     "Leave blank if you do not want to change":"اتركه فارغًا إذا كنت لا تريد التغيير",
-    "Certificates and Courses":"الشهادات والدورات",
-    "Certificates,Courses Name":"الشهادات واسم الدورة",
+    "Certificates and Courses":"الشهادات ،الدورات",
+    "Certificates,Courses Name":"الشهادات ،اسم الدورة",
     "Add certificates, courses":"إضافة الشهادات ، الكورسات",
     "Remove Certificates":"إزالة الشهادات",
-    "Edit Certificate":"تعديل الشهادة"
+    "Edit Certificate":"تعديل الشهادة",
+  
+    "Tips for Creating an ATS-Compatible Resume": "نصائح لإنشاء سيرة ذاتية تتوافق مع نظام تتبع المتقدمين (ATS)",
+    "Use Keywords Smartly:": "استخدم الكلمات المفتاحية بذكاء:",
+        "Analyze the job description and include relevant keywords in your resume. Focus on the skills, qualifications, and terms mentioned frequently.": "قم بتحليل وصف الوظيفة وأدرج الكلمات المفتاحية ذات الصلة في سيرتك الذاتية. ركز على المهارات والمؤهلات والمصطلحات المذكورة بشكل متكرر.",
+        "Choose a Simple Format:": "اختر تنسيقًا بسيطًا:",
+        "Avoid complex layouts, graphics, or tables. Use standard fonts and clear headings to ensure your resume is easily readable by ATS.": "تجنب استخدام تخطيطات معقدة أو رسومات أو جداول. استخدم خطوطًا قياسية وعناوين واضحة لضمان سهولة قراءة السيرة الذاتية من قبل نظام ATS.",
+        "Tailor Your Resume for Each Application:": "خصص سيرتك الذاتية لكل طلب:",
+        "Customize your resume for each job you apply to. Highlight the experiences and skills most relevant to the specific job requirements.": "قم بتخصيص سيرتك الذاتية لكل وظيفة تتقدم لها. أظهر الخبرات والمهارات الأكثر صلة بالمتطلبات المحددة للوظيفة.",
+        "Focus on Achievements:": "ركز على الإنجازات:",
+        "Instead of just listing job duties, highlight your accomplishments. Use measurable metrics to show your impact in previous roles.": "بدلاً من مجرد سرد الواجبات الوظيفية، قم بتسليط الضوء على إنجازاتك. استخدم مقاييس قابلة للقياس لتوضيح تأثيرك في الأدوار السابقة.",
+        "Use Traditional Section Headings:": "استخدم رؤوس أقسام تقليدية:",
+        "Stick to traditional headings like 'Experience,' 'Education,' and 'Skills.' This helps ATS accurately identify and categorize the information.": "التزم بالرؤوس التقليدية مثل \"الخبرة\" و\"التعليم\" و\"المهارات\". هذا يساعد نظام ATS على تحديد وتصنيف المعلومات بدقة.",
+        "Avoid Uncommon Abbreviations:": "تجنب الاختصارات غير الشائعة:",
+        "Use full terms instead of abbreviations that may not be recognized by ATS. For example, write 'Bachelor of Arts' instead of 'B.A.'": "استخدم المصطلحات الكاملة بدلاً من الاختصارات التي قد لا يتعرف عليها نظام ATS. على سبيل المثال، اكتب \"بكالوريوس آداب\" بدلاً من \"ب.أ\".",
+        "Check for Spelling and Grammar Errors:": "تحقق من الأخطاء الإملائية والنحوية:",
+        "Review your resume carefully. ATS may reject resumes with errors, as they may indicate a lack of attention to detail.": "راجع سيرتك الذاتية بعناية. قد يرفض نظام ATS السير الذاتية التي تحتوي على أخطاء أو زلات، لأنها قد تشير إلى نقص في الانتباه للتفاصيل.",
+        "Use Strong Action Verbs:": "استخدم الأفعال القوية:",
+        "Start bullet points with strong action verbs like 'Developed,' 'Managed,' or 'Implemented' to effectively communicate your contributions.": "ابدأ النقاط الرئيسية بأفعال قوية مثل \"طورت\"، \"أدارت\"، أو \"نفذت\" للتعبير عن مساهماتك بفعالية.",
+        "Save It in the Right Format:": "احفظها بالتنسيق الصحيح:",
+        "Save your resume as a PDF, as this format is typically accepted by ATS. Check the job listing for specific file format requirements.": "احفظ سيرتك الذاتية بصيغة PDF ، حيث إن هذه الصيغ مقبولة عادةً من قبل نظام ATS. تحقق من قائمة الوظيفة لمتطلبات نوع الملف المحددة.",
+      
+
+  "Note:": "ملاحظة:",
+  "The system supports English only, so make sure to prepare your resume in English for the best results.": "النظام يدعم اللغة الإنجليزية فقط، لذا تأكد من إعداد سيرتك الذاتية باللغة الإنجليزية لتحقيق أفضل النتائج.",
+  "All rights reserved. Developed with":"جميع الحقوق محفوظة. تطوير",
+  "Old Password":"الرمز القديم",
+  "New Password":"الرمز الجديد",
+  "Confirm New Password":"تأكد الرمز الجديد",
+  " Edit Experiences Details،Volunteer campaigns":"تعديل الخبرات،حملات التطوع",
+
+
+
+
+
+  "Basic information has been successfully entered":"تبزبتز"
+
+      
+    
 
 
     

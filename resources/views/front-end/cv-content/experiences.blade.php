@@ -24,7 +24,7 @@
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Company Name , Freelance work")}} </label>
                       <input type="text" name="company_name" id="address-wpalaceholder" class="form-control"
-                        placeholder="{{__("Enter company name or Freelance work")}}" required>
+                     required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="address-wpalaceholder">{{__("Position")}}</label>

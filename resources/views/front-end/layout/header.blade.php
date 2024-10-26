@@ -31,7 +31,14 @@
          <!-- قائمة اختيار اللغة -->
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      {{ __("Language") }}
+    @php
+        $locales = [
+          'ar'=>"العربية",
+          'en'=>'English'
+  ];
+        $currentLocale = App::getLocale();
+    @endphp
+      {{$locales[$currentLocale]}}
   </a>
   <div class="dropdown-menu" aria-labelledby="languageDropdown">
       <a class="dropdown-item" href="{{ url('/language/en') }}">English</a>

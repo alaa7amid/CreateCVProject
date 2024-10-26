@@ -24,22 +24,22 @@
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Full Name")}}</label>
                       <input type="text" name="name" id="address-wpalaceholder" class="form-control"
-                        placeholder="{{__("Enter your Name")}}" required>
+                         required>
                     </div>
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Job Title")}}</label>
                       <input type="text" name="jobTitle" id="address-wpalaceholder" class="form-control"
-                        placeholder="{{__("Enter your Job Title")}}" required>
+                        required>
                     </div>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="exampleInputEmail2">{{__("Email address")}}</label>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail2"
-                          aria-describedby="emailHelp1" placeholder="{{__("Enter your Email address")}}" required>
+                          aria-describedby="emailHelp1"  required>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="custom-phone">{{__("Phone Number")}}</label>
-                        <input class="form-control" placeholder="{{__("Enter your Phone Number")}}" name="phoneNumber" id="custom-phone" maxlength="14" required>
+                        <input class="form-control"  name="phoneNumber" id="custom-phone" maxlength="14" required>
                       </div>
                     </div> <!-- /.form-row -->
                     <div class="form-row">
@@ -56,12 +56,12 @@
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Address")}}</label>
                       <input type="text" name="address" id="address-wpalaceholder" class="form-control"
-                        placeholder="{{__("Enter your address")}}" required>
+                         required>
                     </div>
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Country")}}</label>
                       <input type="text" name="country" id="address-wpalaceholder" class="form-control"
-                        placeholder="{{__("Enter your country")}}" required>
+                   required>
                     </div>
                     <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
                   </form>

@@ -137,6 +137,18 @@
       @endif
 
     </div>
+    <div class="section education">
+      @if ($Certificates->count() >= 1)
+        <h2>Certificates</h2>
+        @foreach ($Certificates as $Certificate)
+            <div class="section-content">
+                <h3>{{ $Certificate->certificates_name }}</h3>
+                <p>{{ $Certificate->description }}</p>
+            </div>
+        @endforeach
+      @endif
+
+    </div>
 
     <div class="section skills">
       <h2>Skills</h2>

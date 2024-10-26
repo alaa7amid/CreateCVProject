@@ -78,7 +78,7 @@ class backendController extends Controller
     }
 
     public function delete_admin($id){
-        $admin = User::find($id);
+        $admin = User::find($id); 
         $admin->delete();
         return redirect()->back();
     }

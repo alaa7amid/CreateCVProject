@@ -59,7 +59,7 @@ class frontendController extends Controller
         $info->jobTitle = $request->jobTitle;
         $info->save();
 
-        return redirect()->route('profilePage')->with('message','Basic information has been successfully entered');
+        return redirect()->route('profilePage')->with('message',__('Basic information has been successfully entered'));
     }
 
     // Edit Basic Information 
@@ -397,6 +397,7 @@ class frontendController extends Controller
 
     //Experiences 
     public function experience(){
+
         return view('front-end.cv-content.experiences');
     }
     
@@ -438,7 +439,7 @@ public function experienceStore(Request $request)
     //Experiences Edit
     public function editExperience(){
         $experiences = Experience::where('user_id',Auth::user()->id)->get();
-        if($experiences){
+        if(!$experiences->isEmpty()){
             return view('front-end.cv-content.edit_experiences',compact('experiences'));
         }
         return view('front-end.cv-content.no-data');
@@ -527,7 +528,10 @@ public function destroyExperience($id)
     //edit projects
     public function editProjects(){
         $projects = Project::where('user_id',Auth::user()->id)->get();
-        return view('front-end.cv-content.edit_projects',compact('projects'));
+        if(!$projects->isEmpty()){
+            return view('front-end.cv-content.edit_projects',compact('projects'));
+        }
+        return view('front-end.cv-content.no-data');
     }
 
     //update projects
@@ -590,7 +594,12 @@ public function destroyExperience($id)
     //Certificates edit
     public function CertificatesEdit(){
         $certificates = Certificate::where('user_id',Auth::user()->id)->get();
-        return view('front-end.cv-content.edit_certificates',compact('certificates'));
+        if(!$certificates->isEmpty()){
+           return view('front-end.cv-content.edit_certificates',compact('certificates')); 
+        }
+        return view('front-end.cv-content.no-data');
+
+        
     }
     //Certificates update
     public function CertificatesUpdate(Request $request)

@@ -35,15 +35,15 @@
               <div class="row mb-4">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="inputPassword4">Old Password</label>
+                    <label for="inputPassword4">{{__("Old Password")}}</label>
                     <input type="password" class="form-control" name="old_password" id="old_password">
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword5">New Password</label>
+                    <label for="inputPassword5">{{__("New Password")}}</label>
                     <input type="password" class="form-control" name="new_password" id="new_password">
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword6">Confirm New Password</label>
+                    <label for="inputPassword6">{{__("Confirm New Password")}}</label>
                     <input type="password" class="form-control" name="new_password_confirmation" id="new_password_confirmation" required>
                 </div>
                   <button type="submit" class="btn btn-primary">{{__("Update")}}</button>
@@ -55,4 +55,37 @@
     </div> <!-- .container-fluid -->
     
   </main>
+@endsection
+
+@section('js')
+  <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    var userLang = document.documentElement.lang || 'en';
+
+    document.querySelectorAll('.form-group').forEach(function(element) {
+      if (userLang === 'ar') {
+        element.style.direction = 'rtl'; // إذا كانت اللغة العربية، اجعل الاتجاه من اليمين لليسار
+        element.style.textAlign = 'right';
+      } else {
+        element.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار لليمين
+        element.style.textAlign = 'left';
+      }
+    });
+});
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var userLang = document.documentElement.lang || 'en';
+
+  document.querySelectorAll('.form-row, button,.card-header,.alert').forEach(function(row) {
+    if (userLang === 'ar') {
+      row.style.direction = 'rtl'; // إذا كانت اللغة عربية، اجعل الاتجاه من اليمين إلى اليسار
+      row.style.textAlign = 'right'; // محاذاة النص لليمين
+    } else {
+      row.style.direction = 'ltr'; // إذا كانت اللغة إنجليزية، اجعل الاتجاه من اليسار إلى اليمين
+      row.style.textAlign = 'left'; // محاذاة النص لليسار
+    }
+  });
+});
+
+ </script>
 @endsection
