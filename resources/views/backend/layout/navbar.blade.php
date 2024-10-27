@@ -1,8 +1,25 @@
+@php
+use App\Models\BasicInfo as BasicInfoModel;
+use App\Models\Language as LanguageModel;
+use App\Models\Skills as SkillsModel;
+use App\Models\ProfileInfo as ProfileInfoModel;
+
+$basicInfo = BasicInfoModel::where('user_id', Auth::user()->id)->exists();
+$language = LanguageModel::where('user_id', Auth::user()->id)->exists();
+$skills = SkillsModel::where('user_id', Auth::user()->id)->exists();
+$profileInfo = ProfileInfoModel::where('user_id', Auth::user()->id)->exists();
+
+$hasData = $basicInfo || $language || $skills || $profileInfo;
+@endphp
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white flex-row border-bottom shadow">
   <div class="container-fluid d-flex justify-content-center align-items-center">
-    <a class="navbar-brand mx-lg-1 mr-0" href="{{route('website')}}">
-      <span>SkyCV</span>
-    </a>
+    @if ($hasData)
+      <a class="navbar-brand mx-lg-1 mr-0" href="{{ route('createCv') }}">
+        <span>SkyCV</span>
+      </a>
+    @endif
 
     <button class="navbar-toggler mt-2 toggle-sidebar text-muted">
       <i class="fe fe-menu navbar-toggler-icon"></i>

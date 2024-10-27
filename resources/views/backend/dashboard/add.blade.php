@@ -37,9 +37,13 @@
                         <input class="form-control" name="password" id="custom-phone" maxlength="14" required>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label for="custom-phone">{{__("role")}}</label>
-                        <input class="form-control" type="checkbox" name="role" id="role" required>
+                        
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="role" name="role" >
+                          <label class="custom-control-label" for="role">{{__("Is Admin")}}</label>
+                        </div>
                       </div>
+                      
                     </div> <!-- /.form-row -->
                     <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
                   </form>

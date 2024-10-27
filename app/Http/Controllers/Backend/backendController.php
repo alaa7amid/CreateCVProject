@@ -35,15 +35,17 @@ class backendController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'role' => 'boolean'
         ]);
 
         $admin = new User();
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->password =Hash::make($request->password);
+        $admin->role = $request->has('role') ? 1 :0;
         $admin->save();
 
-        return redirect()->route('dashboard.admins')->with('success', 'Admin added successfully!');
+        return redirect()->route('dashboard.admins')->with('success', __('Admin added successfully!'));
     }
 
     public function edit_admin($id){
@@ -57,21 +59,19 @@ class backendController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'nullable|string|min:8', // اجعل كلمة المرور اختيارية
+            'password' => 'nullable|string|min:8',
+            'role' => 'boolean',
+         
         ]);
-
         $admin = User::find($id);
-
         // تحديث الحقول الأخرى
         $admin->name = $request->name;
         $admin->email = $request->email;
-
         // تحديث كلمة المرور فقط إذا تم إدخالها
         if ($request->filled('password')) {
             $admin->password = bcrypt($request->password);
         }
-
-        // حفظ التعديلات
+        $admin->role = $request->has('role') ? 1 : 0;
         $admin->save();
 
         return redirect()->back()->with('message', __('Admin updated successfully!'));

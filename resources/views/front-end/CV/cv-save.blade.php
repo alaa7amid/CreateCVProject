@@ -3,7 +3,7 @@
       font-family: Arial, sans-serif;
       /* text-transform: capitalize;  */
       margin: 0;
-      padding: 20px;
+      /* padding: 20px; */
       /* background-color: #f4f4f4; */
     }
 
@@ -11,17 +11,18 @@
       max-width: 800px;
       margin: 0 auto;
       background-color: #fff;
-      padding: 20px;
+      /* padding: 20px; */
       border-radius: 10px;
       /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     }
 
-    h1, h2, h3 {
+    h1, h2, h3 ,p{
+    font-size: 16px;
       color: #000000;
     }
 
     .header, .section, .contact-info, .skills, .experience, .education {
-      margin-bottom: 20px;
+      /* margin-bottom: 20px; */
     }
 
     .contact-info p, .section-content p {
@@ -35,8 +36,8 @@
 
     .section h2 {
       border-bottom: 2px solid #333;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
+      /* padding-bottom: 5px; */
+      /* margin-bottom: 10px; */
     }
 
     ul {
@@ -92,8 +93,8 @@
       <h2>Experience</h2>
        @foreach ($experiences as $experience)
         <div class="section-content">
-            <h3>{{ $experience->position }}, {{ $experience->company_name }}</h3>
-            <p>{{ $experience->startDate }} - {{ $experience->endDate }}</p>
+            <h3>{{ $experience->position }} <br> {{ $experience->company_name }}</h3>
+            <p>{{ $experience->startDate }}  {{ $experience->endDate }}</p>
             <p>{{ $experience->description }}</p>
         </div>
       @endforeach
@@ -103,8 +104,8 @@
       <h2>Education</h2>
       @foreach ($educations as $education)
         <div class="section-content">
-            <h3>{{ $education->department }}, {{ $education->education_level }}</h3>
-            <p>{{ $education->startDate }} - {{ $education->endtDate }}</p>
+            <h3>{{ $education->department }} <br> {{ $education->education_level }}</h3>
+            <p>{{ $education->startDate }}  {{ $education->endtDate }}</p>
             {{-- <p>It’s okay to brag about your GPA, awards, and honors. Feel free to summarize your coursework too.</p> --}}
         </div>
       @endforeach

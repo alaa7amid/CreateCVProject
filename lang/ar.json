@@ -152,11 +152,36 @@
   "Confirm New Password":"تأكد الرمز الجديد",
   " Edit Experiences Details،Volunteer campaigns":"تعديل الخبرات،حملات التطوع",
 
+"Is Admin":"ادمن",
 
 
 
+  "Basic information has been added successfully.":"تمت إضافة المعلومات الأساسية بنجاح.",
+  "Basic information has been updated successfully.":"تم تحديث المعلومات الأساسية بنجاح.",
+  "No record found to update.":"لم يتم العثور على سجل للتحديث.",
+  "Profile information has been added successfully.":"تمت إضافة معلومات الملف الشخصي بنجاح.",
+  "Profile information has been updated successfully.":"تم تحديث معلومات الملف الشخصي بنجاح.",
+  "Skills have been added successfully.":"تمت إضافة المهارات بنجاح.",
+  "Skills have been updated successfully.":"تم تحديث المهارات بنجاح.",
+  "Education details have been added successfully.":"تمت إضافة تفاصيل التعليم بنجاح.",
+  "Education details have been updated successfully.":"تم تحديث تفاصيل التعليم بنجاح.",
+  "Education details has been deleted successfully.":"تم حذف تفاصيل التعليم بنجاح.",
+  "Language has been added successfully.":"تمت إضافة اللغة بنجاح.",
+  "Language has been updated successfully.":"تم تحديث اللغة بنجاح.",
+  "The experience has been successfully entered.":"تم إدخال الخبرة بنجاح.",
+  "The experiences details have been updated successfully.":"تم تحديث تفاصيل الخبرة بنجاح.",
+  "The record to update could not be found.":"لم يتم العثور على السجل الذي سيتم تحديثه.",
+  "Experience deleted successfully.":"تم حذف الخبرة بنجاح.",
+  "The project has been successfully entered.":"تم إدخال المشروع بنجاح.",
+  "The projects details have been updated successfully.":"تم تحديث تفاصيل المشاريع بنجاح.",
+  "Project deleted successfully":"تم حذف المشروع بنجاح",
+  "The Certificates have been successfully entered.":"تم إدخال الشهادات بنجاح.",
+  "The certificates details have been updated successfully.":"تم تحديث تفاصيل الشهادات بنجاح.",
+  "Certificate deleted successfully":"تم حذف الشهادة بنجاح",
+  "Admin added successfully!":"تمت إضافة المسؤول بنجاح!",
+  "Admin updated successfully!":"تم تحديث المسؤول بنجاح!"
 
-  "Basic information has been successfully entered":"تبزبتز"
+
 
       
     

@@ -27,11 +27,11 @@ class frontendController extends Controller
         return view('front-end.master');
     }
 
-    // Baisc Information first page
+    // Baisc Information 
     public function info(){
         return view('front-end.cv-content.basic-info');
     }
-    // store Baisc Information first page
+    // store Baisc Information 
 
     public function storeBaiscInfo(Request $request){
 
@@ -59,7 +59,7 @@ class frontendController extends Controller
         $info->jobTitle = $request->jobTitle;
         $info->save();
 
-        return redirect()->route('profilePage')->with('message',__('Basic information has been successfully entered'));
+        return redirect()->route('profilePage')->with('message',__('Basic information has been added successfully.'));
     }
 
     // Edit Basic Information 
@@ -98,9 +98,9 @@ class frontendController extends Controller
             $basicInfo->jobTitle = $request->jobTitle;
             $basicInfo->save();
 
-            return redirect()->back()->with('message','The information has been updated successfully.');
+            return redirect()->back()->with('message',__('Basic information has been updated successfully.'));
         }
-        return redirect()->back()->with('message','The record to update could not be found.');
+        return redirect()->back()->with('message',__('No record found to update.'));
     }
 
 
@@ -121,7 +121,7 @@ class frontendController extends Controller
         $profile->profile = $request->profile;
         $profile->save();
 
-        return redirect()->route('skills')->with('message','Profile information has been successfully entered');
+        return redirect()->route('skills')->with('message',__('Profile information has been added successfully.'));
     }
 
     //Edit Profile Information
@@ -144,9 +144,9 @@ class frontendController extends Controller
         if($profileInfo){
             $profileInfo->profile = $request->profile;
             $profileInfo->save();
-            return redirect()->back()->with('message','The information has been updated successfully.');
+            return redirect()->back()->with('message',__('Profile information has been updated successfully.'));
         }
-        return redirect()->back()->with('message','The record to update could not be found.');
+        return redirect()->back()->with('message',__('No record found to update.'));
     }
 
 
@@ -165,7 +165,7 @@ class frontendController extends Controller
         $skills->skills = $request->skills;
         $skills->save();
 
-        return redirect()->route('education')->with('message','The skills has been successfully entered.');
+        return redirect()->route('education')->with('message',__('Skills have been added successfully.'));
  
     }
 
@@ -191,9 +191,9 @@ class frontendController extends Controller
             'skills'=>$request->skills,
         ]);
         $skills->save();
-        return redirect()->back()->with('message','The Skills has been updated successfully.');
+        return redirect()->back()->with('message',__('Skills have been updated successfully.'));
         }
-        return redirect()->back()->with('message','The record to update could not be found.');
+        return redirect()->back()->with('message',__('No record found to update.'));
 
     }
 
@@ -221,7 +221,7 @@ class frontendController extends Controller
         $education->department = $request->department;
         $education->save();
 
-        return redirect()->back()->with('message','Education Details has been successfully entered');
+        return redirect()->back()->with('message',__('Education details have been added successfully.'));
     }
 
     //Edit Education
@@ -249,9 +249,9 @@ class frontendController extends Controller
                 ]);
               }  
             }
-            return redirect()->back()->with('message', 'The education details have been updated successfully.');
+            return redirect()->back()->with('message', __('Education details have been updated successfully.'));
         }
-        return redirect()->back()->with('message', 'The record to update could not be found.');
+        return redirect()->back()->with('message', 'No record found to update.');
 
     }
     
@@ -271,10 +271,10 @@ class frontendController extends Controller
         if ($education) {
             // حذف الخبرة
             $education->delete();
-            return redirect()->back()->with('message', 'educations deleted successfully.');
+            return redirect()->back()->with('message', __('Education details has been deleted successfully.'));
         }
 
-        return redirect()->back()->with('error', 'educations not found.');
+        return redirect()->back()->with('error', __('No record found to update.'));
     }
 
     //Language 
@@ -292,7 +292,7 @@ class frontendController extends Controller
         $language->language = $request->language;
         $language->save();
 
-        return redirect()->route('experience')->with('message','The language has been successfully entered.');
+        return redirect()->route('experience')->with('message',__('Language has been added successfully.'));
  
     }
 
@@ -318,9 +318,9 @@ class frontendController extends Controller
             'language'=>$request->language,
         ]);
         $language->save();
-        return redirect()->back()->with('message','The language has been updated successfully.');
+        return redirect()->back()->with('message',__('Language has been updated successfully.'));
         }
-        return redirect()->back()->with('message','The record to update could not be found.');
+        return redirect()->back()->with('message','No record found to update.');
 
     }
 
@@ -396,118 +396,107 @@ class frontendController extends Controller
     
 
     //Experiences 
-    public function experience(){
-
+    public function experience()
+    {
         return view('front-end.cv-content.experiences');
     }
-    
-    //Experiences Store
-    // Experiences Store
-public function experienceStore(Request $request)
-{
-    // التحقق من صحة البيانات
-    $request->validate([
-        'company_name' => 'required|string|max:255',
-        'position' => 'required|string|max:255',
-        'startDate' => 'required|date',
-        'endDate' => 'nullable|date',
-        'stillWorking' => 'nullable|boolean', // تحقق من وجود خيار "لا يزال يعمل هنا"
-        'description' => 'required|string',
-    ]);
 
-    // إنشاء سجل جديد في جدول الخبرات
-    $experience = new Experience();
-    $experience->user_id = Auth::user()->id;
-    $experience->company_name = $request->company_name;
-    $experience->position = $request->position;
-    $experience->startDate = $request->startDate;
+    // تجربة التخزين
+    public function experienceStore(Request $request)
+    {
+        // التحقق من صحة البيانات
+        $request->validate([
+            'company_name' => 'required|string|max:255',
+            'position' => 'required|string|max:255',
+            'startDate' => 'required|date',
+            'endDate' => 'nullable|date',
+            'stillWorking' => 'nullable|boolean', // خيار "لا يزال يعمل هنا"
+            'description' => 'required|string',
+        ]);
 
-    // إذا كان خيار "لا يزال يعمل هنا" مفعلاً، لا تقم بتخزين endDate
-    if ($request->has('stillWorking')) {
-        $experience->endDate = null; // لا يزال يعمل هنا
-    } else {
-        $experience->endDate = $request->endDate; // إذا لم يتم اختيار "لا يزال يعمل"، استخدم التاريخ المدخل
+        // إنشاء سجل جديد
+        $experience = new Experience();
+        $experience->user_id = Auth::user()->id;
+        $experience->company_name = $request->company_name;
+        $experience->position = $request->position;
+        $experience->startDate = $request->startDate;
+
+        // التعامل مع خيار "لا يزال يعمل هنا"
+        $experience->endDate = $request->has('stillWorking') ? null : $request->endDate;
+
+        $experience->description = $request->description;
+        $experience->save();
+
+        return redirect()->back()->with('message', __('The experience has been successfully entered.'));
     }
 
-    $experience->description = $request->description;
-    $experience->save();
-
-    return redirect()->back()->with('message', 'The experience has been successfully entered.');
-}
-
-
-    //Experiences Edit
-    public function editExperience(){
-        $experiences = Experience::where('user_id',Auth::user()->id)->get();
-        if(!$experiences->isEmpty()){
-            return view('front-end.cv-content.edit_experiences',compact('experiences'));
+    // تحرير تجربة
+    public function editExperience()
+    {
+        $experiences = Experience::where('user_id', Auth::user()->id)->get();
+        if (!$experiences->isEmpty()) {
+            return view('front-end.cv-content.edit_experiences', compact('experiences'));
         }
         return view('front-end.cv-content.no-data');
     }
 
+    // تحديث تجربة
+    public function updateExperience(Request $request)
+    {
+        $request->validate([
+            'experiences' => 'required|array',
+        ]);
 
-    public function updateExperience(Request $request) {
-    $request->validate([
-        'experiences' => 'required|array',
-    ]);
+        $experiences = Experience::where('user_id', Auth::user()->id)->get();
 
-    // استرجاع جميع الخبرات للمستخدم
-    $experiences = Experience::where('user_id', Auth::user()->id)->get();
-
-    // التحقق مما إذا كانت هناك خبرات
-    if ($experiences->isNotEmpty()) {
-        foreach ($experiences as $experience) {
-            if (isset($request->experiences[$experience->id])) {
-                // تحقق مما إذا كان "لا يزال يعمل هنا" محدد
-                $stillWorking = isset($request->experiences[$experience->id]['still_working']);
-                
-                $experience->update([
-                    'company_name' => $request->experiences[$experience->id]['company_name'],
-                    'position' => $request->experiences[$experience->id]['position'],
-                    'startDate' => $request->experiences[$experience->id]['startDate'],
-                    'endDate' => $stillWorking ? null : $request->experiences[$experience->id]['endDate'], // إذا كان لا يزال يعمل، اجعل endDate null
-                    'description' => $request->experiences[$experience->id]['description'],
-                ]);
+        if ($experiences->isNotEmpty()) {
+            foreach ($experiences as $experience) {
+                if (isset($request->experiences[$experience->id])) {
+                    $stillWorking = isset($request->experiences[$experience->id]['still_working']);
+                    
+                    $experience->update([
+                        'company_name' => $request->experiences[$experience->id]['company_name'],
+                        'position' => $request->experiences[$experience->id]['position'],
+                        'startDate' => $request->experiences[$experience->id]['startDate'],
+                        'endDate' => $stillWorking ? null : $request->experiences[$experience->id]['endDate'],
+                        'description' => $request->experiences[$experience->id]['description'],
+                    ]);
+                }
             }
+            return redirect()->back()->with('message', __('The experiences details have been updated successfully.'));
         }
-        return redirect()->back()->with('message', 'The experiences details have been updated successfully.');
+
+        return redirect()->back()->with('message', 'The record to update could not be found.');
     }
 
-    return redirect()->back()->with('message', 'The record to update could not be found.');
-}
-
-    //delete Experiences
+    // حذف الخبرات
     public function deleteExperiences()
-{
-    // جلب الخبرات التي تخص المستخدم الحالي
-    $experiences = Experience::where('user_id', Auth::user()->id)->get();
-    return view('front-end.cv-content.remove_experience', compact('experiences'));
-}
-
-public function destroyExperience($id)
-{
-    // العثور على الخبرة بحسب الـ ID
-    $experience = Experience::find($id);
-    
-    if ($experience) {
-        // حذف الخبرة
-        $experience->delete();
-        return redirect()->back()->with('message', 'Experience deleted successfully.');
+    {
+        $experiences = Experience::where('user_id', Auth::user()->id)->get();
+        return view('front-end.cv-content.remove_experience', compact('experiences'));
     }
 
-    return redirect()->back()->with('error', 'Experience not found.');
-}
-
-
-    //Projects
-    public function projects(){
-        return view('front-end.cv-content.projects');
+    public function destroyExperience($id)
+    {
+        $experience = Experience::find($id);
         
+        if ($experience) {
+            $experience->delete();
+            return redirect()->back()->with('message', __('Experience deleted successfully.'));
+        }
+
+        return redirect()->back()->with('error', __('Experience not found.'));
     }
 
-    //Projects Store
-    public function projectsStore(Request $request){
+    // المشاريع
+    public function projects()
+    {
+        return view('front-end.cv-content.projects');
+    }
 
+    // تخزين المشاريع
+    public function projectsStore(Request $request)
+    {
         $request->validate([
             'project_name' => 'required|string',
             'Technologies' => 'required|string',
@@ -521,30 +510,27 @@ public function destroyExperience($id)
         $projects->description = $request->description;
         $projects->save();
 
-        return redirect()->back()->with('message', 'The experience has been successfully entered.');
-
+        return redirect()->back()->with('message', __('The project has been successfully entered.'));
     }
-    
-    //edit projects
-    public function editProjects(){
-        $projects = Project::where('user_id',Auth::user()->id)->get();
-        if(!$projects->isEmpty()){
-            return view('front-end.cv-content.edit_projects',compact('projects'));
+
+    // تحرير المشاريع
+    public function editProjects()
+    {
+        $projects = Project::where('user_id', Auth::user()->id)->get();
+        if (!$projects->isEmpty()) {
+            return view('front-end.cv-content.edit_projects', compact('projects'));
         }
         return view('front-end.cv-content.no-data');
     }
 
-    //update projects
-    public function updateProjects(Request $request) {
-        // استرجاع جميع المشاريع للمستخدم
+    // تحديث المشاريع
+    public function updateProjects(Request $request)
+    {
         $projects = Project::where('user_id', Auth::user()->id)->get();
-    
-        // التحقق مما إذا كانت هناك مشاريع
+
         if ($projects->isNotEmpty()) {
             foreach ($projects as $project) {
-                // التحقق مما إذا كانت بيانات المشروع موجودة في الطلب
                 if (isset($request->projects[$project->id])) {
-                    // تحديث بيانات المشروع
                     $project->update([
                         'project_name' => $request->projects[$project->id]['project_name'],
                         'Technologies' => $request->projects[$project->id]['Technologies'],
@@ -552,12 +538,15 @@ public function destroyExperience($id)
                     ]);
                 }
             }
-            return redirect()->back()->with('message', 'The projects details have been updated successfully.');
+            return redirect()->back()->with('message', __('The projects details have been updated successfully.'));
         }
-        return redirect()->back()->with('message', 'The record to update could not be found.');
+
+        return redirect()->back()->with('message', __('The record to update could not be found.'));
     }
-    
-    public function deleteProjects(){
+
+    // حذف المشاريع
+    public function deleteProjects()
+    {
         $projects = Project::where('user_id', Auth::user()->id)->get();
         return view('front-end.cv-content.remove_project', compact('projects'));
     }
@@ -566,17 +555,18 @@ public function destroyExperience($id)
     {
         $project = Project::findOrFail($id);
         $project->delete();
-        return redirect()->back()->with('message', 'Project deleted successfully');
+        return redirect()->back()->with('message', __('Project deleted successfully'));
     }
 
-    //Certificates
-    public function Certificates(){
+    // الشهادات
+    public function Certificates()
+    {
         return view('front-end.cv-content.Certificates');
     }
 
-    //Certificates store
-    public function CertificateStore(Request $request){
-
+    // تخزين الشهادات
+    public function CertificateStore(Request $request)
+    {
         $request->validate([
             'certificates_name' => 'required|string',
             'description' => 'required|string',
@@ -588,20 +578,20 @@ public function destroyExperience($id)
         $Certificate->description = $request->description;
         $Certificate->save();
 
-        return redirect()->back()->with('message', 'The Certificates has been successfully entered.');
+        return redirect()->back()->with('message', __('The Certificates have been successfully entered.'));
     }
 
-    //Certificates edit
-    public function CertificatesEdit(){
-        $certificates = Certificate::where('user_id',Auth::user()->id)->get();
-        if(!$certificates->isEmpty()){
-           return view('front-end.cv-content.edit_certificates',compact('certificates')); 
+    // تحرير الشهادات
+    public function CertificatesEdit()
+    {
+        $certificates = Certificate::where('user_id', Auth::user()->id)->get();
+        if (!$certificates->isEmpty()) {
+        return view('front-end.cv-content.edit_certificates', compact('certificates')); 
         }
         return view('front-end.cv-content.no-data');
-
-        
     }
-    //Certificates update
+
+    // تحديث الشهادات
     public function CertificatesUpdate(Request $request)
     {
         $certificates = Certificate::where('user_id', Auth::user()->id)->get();
@@ -614,25 +604,25 @@ public function destroyExperience($id)
                     ]);
                 }
             }
-            return redirect()->back()->with('message', 'The certificates details have been updated successfully.');
+            return redirect()->back()->with('message', __('The certificates details have been updated successfully.'));
         }
 
         return redirect()->back()->with('message', 'The record to update could not be found.');
     }
 
-    //remove certifigation
-    public function deleteCertification(){
-        $certificates = Certificate::where('user_id',Auth::user()->id)->get();
-        return view('front-end.cv-content.remove_certification',compact('certificates'));
+    // حذف الشهادات
+    public function deleteCertification()
+    {
+        $certificates = Certificate::where('user_id', Auth::user()->id)->get();
+        return view('front-end.cv-content.remove_certification', compact('certificates'));
     }
 
-    public function destroyCertificatio($id){
+    public function destroyCertificatio($id)
+    {
         $Certificatio = Certificate::find($id);
-        if($Certificatio){
+        if ($Certificatio) {
             $Certificatio->delete();
-            return redirect()->back()->with('message', 'Certificatio deleted successfully');
+            return redirect()->back()->with('message', __('Certificate deleted successfully'));
         }
     }
-
-}
-  
+    }

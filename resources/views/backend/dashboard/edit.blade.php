@@ -37,6 +37,11 @@
                         <label for="custom-phone">{{__("Password")}}</label>
                         <input type="password" class="form-control" name="password" id="custom-phone" maxlength="14" placeholder="{{ __('Leave blank if you do not want to change') }}">
                       </div>
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="role" name="role" {{ $admin->role ? 'checked' : '' }}>
+                        <label class="custom-control-label"     for="role">{{__("Is Admin")}}</label>
+                      </div>
+                      
                     </div> <!-- /.form-row -->
                     <button class="btn btn-primary" type="submit">{{__("Update")}}</button>
                   </form>
