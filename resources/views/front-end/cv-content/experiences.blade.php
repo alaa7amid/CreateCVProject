@@ -50,8 +50,8 @@
                     </div> <!-- /.form-row -->
                     <div class="form-group mb-3">
                       <label for="address-wpalaceholder">{{__("Description")}}</label>
-                      <input type="text" name="description" id="address-wpalaceholder" class="form-control"
-                         required>
+                      <textarea type="text" name="description" id="address-wpalaceholder" class="form-control"
+                         required></textarea>
                     </div>
                     <button class="btn btn-primary" type="submit">{{__("Save")}}</button>
 

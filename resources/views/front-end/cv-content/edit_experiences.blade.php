@@ -44,7 +44,7 @@
                                   
                                     <div class="form-group mb-3">
                                         <label for="description_{{$experience->id}}">{{__("Description")}}</label>
-                                        <input type="text" name="experiences[{{$experience->id}}][description]" value="{{$experience->description}}" id="description_{{$experience->id}}" class="form-control" placeholder="Enter.." required>
+                                        <textarea type="text" name="experiences[{{$experience->id}}][description]"  id="description_{{$experience->id}}" class="form-control" placeholder="Enter.." required>{{$experience->description}}</textarea>
                                     </div>
                                     <hr>
                                 @endforeach

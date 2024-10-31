@@ -9,7 +9,8 @@ $language = LanguageModel::where('user_id', Auth::user()->id)->exists();
 $skills = SkillsModel::where('user_id', Auth::user()->id)->exists();
 $profileInfo = ProfileInfoModel::where('user_id', Auth::user()->id)->exists();
 
-$hasData = $basicInfo || $language || $skills || $profileInfo;
+
+$hasData = $basicInfo && $language && $skills && $profileInfo;
 @endphp
 
 

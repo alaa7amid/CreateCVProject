@@ -56,37 +56,48 @@ class CvController extends Controller
 
 
     public function downloadCV()
-    {
-        // جلب بيانات الـ CV التي تحتاجها
-        $imageProfile = Image::where('user_id',Auth::user()->id)->first();
-        $basicInfo = BasicInfo::where('user_id',Auth::user()->id)->first();
-        $educations = Education::where('user_id',Auth::user()->id)->get();
+{
+    // جلب بيانات الـ CV التي تحتاجها
+    $imageProfile = Image::where('user_id', Auth::user()->id)->first();
+    $basicInfo = BasicInfo::where('user_id', Auth::user()->id)->first();
+    $educations = Education::where('user_id', Auth::user()->id)->get();
+    
+    $languagesList = Language::where('user_id', Auth::user()->id)->first();
+    $languages = explode(',', $languagesList->language);
 
+    $profile = ProfileInfo::where('user_id', Auth::user()->id)->first();
+
+    $skiilsList = Skills::where('user_id', Auth::user()->id)->first();
+    $skills = explode(',', $skiilsList->skills);
+
+    $experiences = Experience::where('user_id', Auth::user()->id)->get();
+    
+    $projects = Project::where('user_id', Auth::user()->id)->get();
+    $Certificates = Certificate::where('user_id', Auth::user()->id)->get();
+
+    // إنشاء كائن mPDF وتعيين المهلة
+    $mpdf = new \Mpdf\Mpdf([
+        'autoScriptToLang' => true,
+    'autoLangToFont' => true,
+    'format' => 'A4',
+    'margin_left' => 15,
+    'margin_right' => 15,
+    'margin_top' => 20,
+    'margin_bottom' => 20,
+    'compression' => true,
         
-        $languagesList = Language::where('user_id',Auth::user()->id)->first();
-        $languages = explode(',',$languagesList->language);
+    ]);
 
-        $profile = ProfileInfo::where('user_id',Auth::user()->id)->first();
-
-        $skiilsList = Skills::where('user_id',Auth::user()->id)->first();
-        $skills = explode(',',$skiilsList->skills);
-
-        $experiences = Experience::where('user_id',Auth::user()->id)->get();
-        
-        $projects = Project::where('user_id',Auth::user()->id)->get();
-        $Certificates = Certificate::where('user_id',Auth::user()->id)->get();
-
-        $mpdf = new \Mpdf\Mpdf();
-
-    // عرض السيرة الذاتية
-    $html = view('front-end.CV.cv-save', compact('basicInfo', 'profile', 'educations', 'languages', 'skills', 'experiences', 'projects','Certificates'))->render();
+    // عرض السيرة الذاتية كـ HTML
+    $html = view('front-end.CV.cv-save', compact('basicInfo', 'profile', 'educations', 'languages', 'skills', 'experiences', 'projects', 'Certificates'))->render();
 
     // كتابة المحتوى إلى PDF
     $mpdf->WriteHTML($html);
 
     // تنزيل الملف كـ PDF
     return $mpdf->Output('cv.pdf', 'D');
-    }
+}
+
 
 
     // public function downloadCV(){
